@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CSV_PATH = ROOT / "data" / "emoji.csv"
+CSV_PATH = ROOT / "data" / "emoji_enriched.csv"
 CLDR_FULL_URL = (
     "https://raw.githubusercontent.com/unicode-org/cldr-json/main/"
     "cldr-json/cldr-annotations-full/annotations/ja/annotations.json"
@@ -18,6 +18,7 @@ CLDR_DERIVED_URL = (
 )
 
 FIELDNAMES = [
+    "id",
     "emoji",
     "codepoints",
     "name_en",
@@ -30,6 +31,9 @@ FIELDNAMES = [
     "tags_ja",
     "scenes_ja",
     "tone_ja",
+    "assoc_ja",
+    "en_flag",
+    "importance",
 ]
 
 CATEGORY_JA = {
@@ -392,6 +396,7 @@ def enrich_row(row, annotations):
     tones = unique([*split_list(row.get("tone_ja", "")), *generated_tones(row, tags)])
 
     return {
+        "id": row.get("id", ""),
         "emoji": row["emoji"],
         "codepoints": row["codepoints"],
         "name_en": row["name_en"],
@@ -404,6 +409,9 @@ def enrich_row(row, annotations):
         "tags_ja": join_list(tags),
         "scenes_ja": join_list(scenes),
         "tone_ja": join_list(tones),
+        "assoc_ja": row.get("assoc_ja", ""),
+        "en_flag": row.get("en_flag", ""),
+        "importance": row.get("importance", ""),
     }
 
 

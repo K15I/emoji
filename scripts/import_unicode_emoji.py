@@ -6,9 +6,10 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CSV_PATH = ROOT / "data" / "emoji.csv"
+CSV_PATH = ROOT / "data" / "emoji_enriched.csv"
 DEFAULT_URL = "https://unicode.org/Public/emoji/latest/emoji-test.txt"
 FIELDNAMES = [
+    "id",
     "emoji",
     "codepoints",
     "name_en",
@@ -21,6 +22,9 @@ FIELDNAMES = [
     "tags_ja",
     "scenes_ja",
     "tone_ja",
+    "assoc_ja",
+    "en_flag",
+    "importance",
 ]
 
 LINE_RE = re.compile(
@@ -251,6 +255,7 @@ def merge_row(imported, existing):
     old = existing.get(imported["emoji"], {})
     tags = [*split_list(old.get("tags_ja", "")), *generated_tags(imported)]
     return {
+        "id": old.get("id", ""),
         "emoji": imported["emoji"],
         "codepoints": imported["codepoints"],
         "name_en": imported["name_en"],
@@ -263,6 +268,9 @@ def merge_row(imported, existing):
         "tags_ja": join_list(tags),
         "scenes_ja": join_list(split_list(old.get("scenes_ja", ""))),
         "tone_ja": join_list(split_list(old.get("tone_ja", ""))),
+        "assoc_ja": join_list(split_list(old.get("assoc_ja", ""))),
+        "en_flag": old.get("en_flag", ""),
+        "importance": old.get("importance", ""),
     }
 
 

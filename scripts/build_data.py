@@ -1,14 +1,15 @@
+import argparse
 import csv
 import json
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "data" / "emoji.csv"
+DEFAULT_SOURCE = ROOT / "data" / "emoji_enriched.csv"
 JSON_OUT = ROOT / "site" / "data" / "emoji.json"
 JS_OUT = ROOT / "site" / "data" / "emoji-data.js"
 
-LIST_FIELDS = ("tags_ja", "scenes_ja", "tone_ja")
+LIST_FIELDS = ("tags_ja", "scenes_ja", "tone_ja", "assoc_ja")
 
 
 def split_list(value):
@@ -17,17 +18,24 @@ def split_list(value):
     return [item.strip() for item in value.replace(",", ";").split(";") if item.strip()]
 
 
+def clean(value):
+    return "" if value is None else str(value).strip()
+
+
 def normalize_row(row):
     item = {
-        "emoji": row["emoji"].strip(),
-        "codepoints": [part.strip() for part in row["codepoints"].split() if part.strip()],
-        "name_en": row["name_en"].strip(),
-        "name_ja": row["name_ja"].strip(),
-        "category": row["category"].strip(),
-        "category_ja": row.get("category_ja", "").strip(),
-        "subcategory": row["subcategory"].strip(),
-        "subcategory_ja": row.get("subcategory_ja", "").strip(),
-        "unicode_version": row["unicode_version"].strip(),
+        "id": clean(row.get("id", "")),
+        "emoji": clean(row["emoji"]),
+        "codepoints": [part.strip() for part in clean(row["codepoints"]).split() if part.strip()],
+        "name_en": clean(row["name_en"]),
+        "name_ja": clean(row["name_ja"]),
+        "en_flag": clean(row.get("en_flag", "")),
+        "importance": clean(row.get("importance", "")),
+        "category": clean(row["category"]),
+        "category_ja": clean(row.get("category_ja", "")),
+        "subcategory": clean(row["subcategory"]),
+        "subcategory_ja": clean(row.get("subcategory_ja", "")),
+        "unicode_version": clean(row["unicode_version"]),
     }
 
     for field in LIST_FIELDS:
@@ -35,8 +43,11 @@ def normalize_row(row):
 
     searchable = [
         item["emoji"],
+        item["id"],
         item["name_en"],
         item["name_ja"],
+        item["en_flag"],
+        item["importance"],
         item["category"],
         item["category_ja"],
         item["subcategory"],
@@ -44,18 +55,24 @@ def normalize_row(row):
         *item["tags_ja"],
         *item["scenes_ja"],
         *item["tone_ja"],
+        *item["assoc_ja"],
     ]
     item["search_text"] = " ".join(searchable).lower()
     return item
 
 
 def main():
-    with SOURCE.open("r", encoding="utf-8-sig", newline="") as fp:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--source", type=Path, default=DEFAULT_SOURCE)
+    args = parser.parse_args()
+    source = args.source
+
+    with source.open("r", encoding="utf-8-sig", newline="") as fp:
         rows = [normalize_row(row) for row in csv.DictReader(fp)]
 
     payload = {
         "version": 1,
-        "source": "data/emoji.csv",
+        "source": str(source.relative_to(ROOT)).replace("\\", "/"),
         "count": len(rows),
         "items": rows,
     }
