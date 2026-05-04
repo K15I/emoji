@@ -15,6 +15,28 @@ python scripts/build_data.py
 
 サイト内の参照は相対パスです。`file://` で直接開いても動くように、サイトは `site/data/emoji-data.js` を読み込みます。`site/data/emoji.json` は後で別用途に使える検索DBです。
 
+## Unicode公式データを取り込む
+
+Unicode公式の `emoji-test.txt` から `fully-qualified` 絵文字を取り込み、既存CSVの日本語名・タグを残したまま行を増やせます。
+
+```powershell
+python scripts/import_unicode_emoji.py
+python scripts/build_data.py
+```
+
+取り込み元の既定値は以下です。
+
+```text
+https://unicode.org/Public/emoji/latest/emoji-test.txt
+```
+
+ネットワークを使わない場合は、事前に保存した `emoji-test.txt` を指定できます。
+
+```powershell
+python scripts/import_unicode_emoji.py --input path\to\emoji-test.txt
+python scripts/build_data.py
+```
+
 ## データの流れ
 
 ```text
