@@ -418,7 +418,7 @@ def main():
     with args.csv.open("r", encoding="utf-8-sig", newline="") as fp:
         rows = [enrich_row(row, annotations) for row in csv.DictReader(fp)]
 
-    with args.csv.open("w", encoding="utf-8", newline="") as fp:
+    with args.csv.open("w", encoding="utf-8-sig", newline="") as fp:
         writer = csv.DictWriter(fp, fieldnames=FIELDNAMES)
         writer.writeheader()
         writer.writerows(rows)

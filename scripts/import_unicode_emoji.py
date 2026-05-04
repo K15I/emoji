@@ -267,7 +267,7 @@ def merge_row(imported, existing):
 
 
 def write_csv(path, rows):
-    with path.open("w", encoding="utf-8", newline="") as fp:
+    with path.open("w", encoding="utf-8-sig", newline="") as fp:
         writer = csv.DictWriter(fp, fieldnames=FIELDNAMES)
         writer.writeheader()
         writer.writerows(rows)
