@@ -24,7 +24,9 @@ def normalize_row(row):
         "name_en": row["name_en"].strip(),
         "name_ja": row["name_ja"].strip(),
         "category": row["category"].strip(),
+        "category_ja": row.get("category_ja", "").strip(),
         "subcategory": row["subcategory"].strip(),
+        "subcategory_ja": row.get("subcategory_ja", "").strip(),
         "unicode_version": row["unicode_version"].strip(),
     }
 
@@ -36,7 +38,9 @@ def normalize_row(row):
         item["name_en"],
         item["name_ja"],
         item["category"],
+        item["category_ja"],
         item["subcategory"],
+        item["subcategory_ja"],
         *item["tags_ja"],
         *item["scenes_ja"],
         *item["tone_ja"],

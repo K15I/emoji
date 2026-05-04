@@ -24,6 +24,13 @@ python scripts/import_unicode_emoji.py
 python scripts/build_data.py
 ```
 
+日本語名、分類名、連想タグ、場面、トーンをCLDR日本語アノテーションなどで補強する場合は、取り込み後に以下を実行します。
+
+```powershell
+python scripts/enrich_japanese_data.py
+python scripts/build_data.py
+```
+
 取り込み元の既定値は以下です。
 
 ```text

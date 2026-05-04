@@ -143,7 +143,7 @@ function renderSelected() {
       ${metaBlock("タグ", item.tags_ja)}
       ${metaBlock("場面", item.scenes_ja)}
       ${metaBlock("トーン", item.tone_ja)}
-      ${metaBlock("分類", [item.category, item.subcategory])}
+      ${metaBlock("分類", [item.category_ja || item.category, item.subcategory_ja || item.subcategory])}
     </div>
   `;
 
