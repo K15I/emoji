@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>連想絵文字検索</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <h1>連想絵文字検索</h1>
+          <p>ことば、場面、気分から絵文字を探す</p>
+        </div>
+        <button id="copyButton" class="copy-button" type="button" disabled>コピー</button>
+      </header>
+
+      <section class="search-panel" aria-label="検索">
+        <label class="search-label" for="searchInput">検索語</label>
+        <input id="searchInput" type="search" autocomplete="off" placeholder="笑顔 夏 動物 謝罪 など">
+        <div id="quickTags" class="quick-tags" aria-label="候補タグ"></div>
+      </section>
+
+      <section class="workspace" aria-label="検索結果">
+        <section class="pane">
+          <div class="pane-heading">
+            <h2>ヒット</h2>
+            <span id="resultCount">0</span>
+          </div>
+          <div id="results" class="emoji-grid"></div>
+        </section>
+
+        <section class="detail-pane">
+          <div id="selectedDetail" class="selected-empty">絵文字を選ぶと、同じタグを持つ候補が表示されます。</div>
+        </section>
+
+        <section class="pane">
+          <div class="pane-heading">
+            <h2 id="relatedTitle">関連</h2>
+            <span id="relatedCount">0</span>
+          </div>
+          <div id="relatedFilter" class="related-filter" hidden></div>
+          <div id="related" class="emoji-grid"></div>
+        </section>
+      </section>
+    </main>
+    <script src="./data/emoji-data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
