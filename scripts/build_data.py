@@ -9,7 +9,7 @@ DEFAULT_SOURCE = ROOT / "data" / "emoji_enriched.csv"
 JSON_OUT = ROOT / "site" / "data" / "emoji.json"
 JS_OUT = ROOT / "site" / "data" / "emoji-data.js"
 
-LIST_FIELDS = ("tags_ja", "scenes_ja", "tone_ja", "assoc_ja")
+LIST_FIELDS = ("tags_ja", "scenes_ja", "tone_ja")
 
 
 def split_list(value):
@@ -41,6 +41,12 @@ def normalize_row(row):
     for field in LIST_FIELDS:
         item[field] = split_list(row.get(field, ""))
 
+    item["class_ja"] = [
+        value
+        for value in (item["category_ja"] or item["category"], item["subcategory_ja"] or item["subcategory"])
+        if value
+    ]
+
     searchable = [
         item["emoji"],
         item["id"],
@@ -55,7 +61,7 @@ def normalize_row(row):
         *item["tags_ja"],
         *item["scenes_ja"],
         *item["tone_ja"],
-        *item["assoc_ja"],
+        *item["class_ja"],
     ]
     item["search_text"] = " ".join(searchable).lower()
     return item
@@ -66,13 +72,15 @@ def main():
     parser.add_argument("--source", type=Path, default=DEFAULT_SOURCE)
     args = parser.parse_args()
     source = args.source
+    if not source.is_absolute():
+        source = ROOT / source
 
     with source.open("r", encoding="utf-8-sig", newline="") as fp:
         rows = [normalize_row(row) for row in csv.DictReader(fp)]
 
     payload = {
         "version": 1,
-        "source": str(source.relative_to(ROOT)).replace("\\", "/"),
+        "source": str(source.resolve().relative_to(ROOT)).replace("\\", "/"),
         "count": len(rows),
         "items": rows,
     }

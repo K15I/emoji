@@ -17,39 +17,62 @@ const relatedFilter = document.querySelector("#relatedFilter");
 const selectedDetail = document.querySelector("#selectedDetail");
 const copyButton = document.querySelector("#copyButton");
 
-const presetTags = ["笑顔", "夏", "動物", "食べ物", "謝罪", "お祝い", "旅行", "かわいい", "落ち着き"];
+const presetTags = [
+  "笑顔",
+  "夏",
+  "動物",
+  "かわいい",
+  "ふわふわ",
+  "楕円",
+  "速い",
+  "びっくり",
+  "青い旗",
+  "三色旗",
+];
 
 function termsFromQuery(query) {
-  return query
-    .trim()
-    .toLowerCase()
-    .split(/\s+/)
-    .filter(Boolean);
+  return query.trim().toLowerCase().split(/\s+/).filter(Boolean);
+}
+
+function classTerms(item) {
+  return item.class_ja ?? [item.category_ja || item.category, item.subcategory_ja || item.subcategory].filter(Boolean);
+}
+
+function allTerms(item) {
+  return [...item.tags_ja, ...item.scenes_ja, ...item.tone_ja, ...classTerms(item)];
+}
+
+function importanceScore(item) {
+  const importance = Number.parseInt(item.importance || "2", 10);
+  return Number.isFinite(importance) ? importance : 2;
 }
 
 function scoreItem(item, terms) {
   if (terms.length === 0) {
-    return 1;
+    return importanceScore(item);
   }
 
   let score = 0;
   const nameJa = item.name_ja.toLowerCase();
   const nameEn = item.name_en.toLowerCase();
-  const tagSet = [...item.tags_ja, ...item.scenes_ja, ...item.tone_ja].map((tag) => tag.toLowerCase());
+  const tags = allTerms(item).map((tag) => tag.toLowerCase());
 
   for (const term of terms) {
-    if (item.emoji === term) score += 100;
-    if (nameJa === term) score += 60;
-    if (nameJa.includes(term)) score += 35;
-    if (nameEn.includes(term)) score += 20;
-    for (const tag of tagSet) {
-      if (tag === term) score += 45;
-      else if (tag.includes(term) || term.includes(tag)) score += 18;
+    if (item.emoji === term) score += 140;
+    if (item.id === term) score += 80;
+    if (nameJa === term) score += 80;
+    else if (nameJa.includes(term)) score += 45;
+    if (nameEn.includes(term)) score += 24;
+
+    for (const tag of tags) {
+      if (tag === term) score += 55;
+      else if (tag.includes(term) || term.includes(tag)) score += 20;
     }
+
     if (item.search_text.includes(term)) score += 8;
   }
 
-  return score;
+  return score + importanceScore(item);
 }
 
 function searchItems() {
@@ -57,32 +80,35 @@ function searchItems() {
   return data
     .map((item, index) => ({ item, index, score: scoreItem(item, terms) }))
     .filter((entry) => entry.score > 0)
-    .sort((a, b) => b.score - a.score || a.index - b.index)
+    .sort((a, b) => b.score - a.score || importanceScore(b.item) - importanceScore(a.item) || a.index - b.index)
     .map((entry) => entry.item);
 }
 
 function overlapScore(base, item) {
-  if (!base || base.emoji === item.emoji) return 0;
-  const baseTags = new Set([...base.tags_ja, ...base.scenes_ja, ...base.tone_ja]);
+  if (!base || base.id === item.id) return 0;
+
+  const baseTags = new Set(base.tags_ja);
+  const baseScenes = new Set(base.scenes_ja);
+  const baseTone = new Set(base.tone_ja);
+  const baseClass = new Set(classTerms(base));
   let score = 0;
 
   for (const tag of item.tags_ja) {
-    if (baseTags.has(tag)) score += 4;
+    if (baseTags.has(tag)) score += 5;
   }
   for (const scene of item.scenes_ja) {
-    if (baseTags.has(scene)) score += 3;
+    if (baseScenes.has(scene)) score += 4;
   }
   for (const tone of item.tone_ja) {
-    if (baseTags.has(tone)) score += 2;
+    if (baseTone.has(tone)) score += 4;
+  }
+  for (const className of classTerms(item)) {
+    if (baseClass.has(className)) score += 3;
   }
   if (base.category === item.category) score += 1;
-  if (base.subcategory === item.subcategory) score += 2;
+  if (base.subcategory === item.subcategory) score += 3;
 
-  return score;
-}
-
-function allRelatedTerms(item) {
-  return [...item.tags_ja, ...item.scenes_ja, ...item.tone_ja];
+  return score + importanceScore(item);
 }
 
 function relatedItems() {
@@ -92,10 +118,10 @@ function relatedItems() {
     .filter((entry) => entry.score > 0)
     .filter((entry) => {
       if (!state.relatedFilterTag) return true;
-      return allRelatedTerms(entry.item).includes(state.relatedFilterTag);
+      return allTerms(entry.item).includes(state.relatedFilterTag);
     })
-    .sort((a, b) => b.score - a.score || a.index - b.index)
-    .slice(0, 24)
+    .sort((a, b) => b.score - a.score || importanceScore(b.item) - importanceScore(a.item) || a.index - b.index)
+    .slice(0, 36)
     .map((entry) => entry.item);
 }
 
@@ -103,14 +129,14 @@ function makeCard(item) {
   const button = document.createElement("button");
   button.type = "button";
   button.className = "emoji-card";
-  if (state.selected?.emoji === item.emoji) {
+  if (state.selected?.id === item.id) {
     button.classList.add("is-selected");
   }
   button.innerHTML = `
-    <span class="emoji-char">${item.emoji}</span>
+    <span class="emoji-char">${escapeHtml(item.emoji)}</span>
     <span>
-      <span class="emoji-name">${item.name_ja}</span>
-      <span class="emoji-tags">${item.tags_ja.slice(0, 3).join(" / ")}</span>
+      <span class="emoji-name">${escapeHtml(item.name_ja)}</span>
+      <span class="emoji-tags">${escapeHtml([...item.tags_ja, ...item.scenes_ja, ...item.tone_ja].slice(0, 4).join(" / "))}</span>
     </span>
   `;
   button.addEventListener("click", () => {
@@ -129,21 +155,21 @@ function renderSelected() {
   copyButton.disabled = !state.selected;
   if (!state.selected) {
     selectedDetail.className = "selected-empty";
-    selectedDetail.textContent = "絵文字を選ぶと、同じタグを持つ候補が表示されます。";
+    selectedDetail.textContent = "絵文字を選ぶと、同じタグを持つ候補を右に表示します。";
     return;
   }
 
   const item = state.selected;
   selectedDetail.className = "";
   selectedDetail.innerHTML = `
-    <div class="selected-emoji">${item.emoji}</div>
-    <div class="selected-name">${item.name_ja}</div>
-    <div class="selected-en">${item.name_en}</div>
+    <div class="selected-emoji">${escapeHtml(item.emoji)}</div>
+    <div class="selected-name">${escapeHtml(item.name_ja)}</div>
+    <div class="selected-en">${escapeHtml(item.name_en)}</div>
     <div class="meta-list">
       ${metaBlock("タグ", item.tags_ja)}
       ${metaBlock("場面", item.scenes_ja)}
-      ${metaBlock("トーン", item.tone_ja)}
-      ${metaBlock("分類", [item.category_ja || item.category, item.subcategory_ja || item.subcategory])}
+      ${metaBlock("トーン・見た目", item.tone_ja)}
+      ${metaBlock("分類", classTerms(item))}
     </div>
   `;
 
@@ -156,21 +182,18 @@ function renderSelected() {
 }
 
 function metaBlock(title, values) {
-  const isClickable = title !== "分類";
+  if (!values.length) return "";
   return `
     <section class="meta-block">
-      <h3>${title}</h3>
-      <div class="chips">${values.map((value) => chipMarkup(value, isClickable)).join("")}</div>
+      <h3>${escapeHtml(title)}</h3>
+      <div class="chips">${values.map((value) => chipMarkup(value)).join("")}</div>
     </section>
   `;
 }
 
-function chipMarkup(value, isClickable) {
-  if (!isClickable) {
-    return `<span class="chip">${value}</span>`;
-  }
+function chipMarkup(value) {
   const activeClass = state.relatedFilterTag === value ? " is-active" : "";
-  return `<button class="chip chip-button${activeClass}" type="button" data-related-filter="${value}">${value}</button>`;
+  return `<button class="chip chip-button${activeClass}" type="button" data-related-filter="${escapeHtml(value)}">${escapeHtml(value)}</button>`;
 }
 
 function renderRelatedFilter() {
@@ -183,7 +206,7 @@ function renderRelatedFilter() {
 
   relatedFilter.hidden = false;
   relatedFilter.innerHTML = `
-    <span>${state.relatedFilterTag} で絞り込み中</span>
+    <span>${escapeHtml(state.relatedFilterTag)} で絞り込み中</span>
     <button type="button">解除</button>
   `;
   relatedFilter.querySelector("button").addEventListener("click", () => {
@@ -211,7 +234,7 @@ function renderQuickTags() {
 }
 
 function render() {
-  const found = searchItems().slice(0, 60);
+  const found = searchItems().slice(0, 80);
   const relatedFound = relatedItems();
   resultCount.textContent = String(found.length);
   relatedCount.textContent = String(relatedFound.length);
@@ -219,6 +242,14 @@ function render() {
   renderList(related, relatedFound);
   renderRelatedFilter();
   renderSelected();
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
 }
 
 searchInput.addEventListener("input", (event) => {
