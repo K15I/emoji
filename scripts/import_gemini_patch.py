@@ -35,7 +35,10 @@ def apply_patch(row, patch):
     if "importance" in patch:
         row["importance"] = str(patch["importance"]).strip()
 
-    assoc = split_list(row.get("assoc_ja", ""))
+    if "assoc_ja_set" in patch:
+        assoc = list(patch.get("assoc_ja_set") or [])
+    else:
+        assoc = split_list(row.get("assoc_ja", ""))
     assoc.extend(patch.get("assoc_ja_add", []))
     assoc.extend(patch.get("associations_ja_add", []))
     assoc.extend(patch.get("tags_ja_add", []))

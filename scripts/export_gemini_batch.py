@@ -24,6 +24,18 @@ def row_payload(row):
     }
 
 
+def lean_row_payload(row):
+    return {
+        "id": row.get("id", ""),
+        "emoji": row["emoji"],
+        "name_ja": row["name_ja"],
+        "subcategory": row.get("subcategory", ""),
+        "subcategory_ja": row.get("subcategory_ja", ""),
+        "importance": row.get("importance", ""),
+        "assoc_ja": association_pool(row),
+    }
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--csv", type=Path, default=DEFAULT_CSV)
@@ -31,6 +43,7 @@ def main():
     parser.add_argument("--category")
     parser.add_argument("--limit", type=int)
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--lean", action="store_true", help="Output only fields needed for tag cleanup.")
     args = parser.parse_args()
 
     rows, _ = read_rows(args.csv)
@@ -50,7 +63,8 @@ def main():
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.open("w", encoding="utf-8", newline="") as fp:
         for row in rows:
-            fp.write(json.dumps(row_payload(row), ensure_ascii=False) + "\n")
+            payload = lean_row_payload(row) if args.lean else row_payload(row)
+            fp.write(json.dumps(payload, ensure_ascii=False) + "\n")
 
     print(f"Exported {len(rows)} rows to {output}")
 
