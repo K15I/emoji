@@ -155,6 +155,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
   min-height: 48px;
   border-bottom: 1px solid var(--line);
   padding: 0 14px;
@@ -169,6 +170,33 @@ h1 {
   font-variant-numeric: tabular-nums;
 }
 
+.pane-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.random-button {
+  min-height: 30px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.random-button:hover:not(:disabled),
+.random-button.is-active {
+  border-color: var(--accent);
+  background: rgba(15, 118, 110, 0.1);
+}
+
+.random-button:disabled {
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
 .related-filter {
   display: flex;
   align-items: center;
@@ -178,6 +206,12 @@ h1 {
   padding: 10px 12px;
   color: var(--muted);
   font-size: 13px;
+}
+
+.search-filter {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin-top: 12px;
 }
 
 .related-filter button {
@@ -195,6 +229,13 @@ h1 {
   grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
   gap: 10px;
   padding: 12px;
+}
+
+.empty-list {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  line-height: 1.6;
+  padding: 18px 4px;
 }
 
 .emoji-card {

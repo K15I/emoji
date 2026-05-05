@@ -2,8 +2,11 @@ const data = window.EMOJI_DATA?.items ?? [];
 
 const state = {
   query: "",
+  exactTag: "",
   selected: null,
   relatedFilterTag: "",
+  resultRandomSeed: 0,
+  relatedRandomSeed: 0,
 };
 
 const searchInput = document.querySelector("#searchInput");
@@ -16,13 +19,21 @@ const relatedTitle = document.querySelector("#relatedTitle");
 const relatedFilter = document.querySelector("#relatedFilter");
 const selectedDetail = document.querySelector("#selectedDetail");
 const copyButton = document.querySelector("#copyButton");
+const randomResultsButton = document.querySelector("#randomResultsButton");
+const randomRelatedButton = document.querySelector("#randomRelatedButton");
+const searchFilter = document.querySelector("#searchFilter");
 
 const presetTags = [
   "笑顔",
-  "夏",
+  "ありがとう",
+  "お祝い",
+  "仕事",
+  "旅行",
   "動物",
+  "食べ物",
   "かわいい",
   "ふわふわ",
+  "きらきら",
   "楕円",
   "速い",
   "びっくり",
@@ -42,12 +53,29 @@ function allTerms(item) {
   return [...item.tags_ja, ...item.scenes_ja, ...item.tone_ja, ...classTerms(item)];
 }
 
+function hasExactTerm(item, term) {
+  return allTerms(item).includes(term);
+}
+
 function importanceScore(item) {
   const importance = Number.parseInt(item.importance || "2", 10);
   return Number.isFinite(importance) ? importance : 2;
 }
 
+function randomScore(id, seed) {
+  let hash = seed || 1;
+  const text = String(id);
+  for (let index = 0; index < text.length; index += 1) {
+    hash = Math.imul(hash ^ text.charCodeAt(index), 2654435761);
+  }
+  return (hash >>> 0) / 4294967295;
+}
+
 function scoreItem(item, terms) {
+  if (state.exactTag && !hasExactTerm(item, state.exactTag)) {
+    return 0;
+  }
+
   if (terms.length === 0) {
     return importanceScore(item);
   }
@@ -72,6 +100,9 @@ function scoreItem(item, terms) {
     if (item.search_text.includes(term)) score += 8;
   }
 
+  if (score === 0) {
+    return 0;
+  }
   return score + importanceScore(item);
 }
 
@@ -80,7 +111,12 @@ function searchItems() {
   return data
     .map((item, index) => ({ item, index, score: scoreItem(item, terms) }))
     .filter((entry) => entry.score > 0)
-    .sort((a, b) => b.score - a.score || importanceScore(b.item) - importanceScore(a.item) || a.index - b.index)
+    .sort((a, b) => {
+      if (state.resultRandomSeed) {
+        return randomScore(a.item.id, state.resultRandomSeed) - randomScore(b.item.id, state.resultRandomSeed);
+      }
+      return b.score - a.score || importanceScore(b.item) - importanceScore(a.item) || a.index - b.index;
+    })
     .map((entry) => entry.item);
 }
 
@@ -108,6 +144,9 @@ function overlapScore(base, item) {
   if (base.category === item.category) score += 1;
   if (base.subcategory === item.subcategory) score += 3;
 
+  if (score === 0) {
+    return 0;
+  }
   return score + importanceScore(item);
 }
 
@@ -120,8 +159,12 @@ function relatedItems() {
       if (!state.relatedFilterTag) return true;
       return allTerms(entry.item).includes(state.relatedFilterTag);
     })
-    .sort((a, b) => b.score - a.score || importanceScore(b.item) - importanceScore(a.item) || a.index - b.index)
-    .slice(0, 36)
+    .sort((a, b) => {
+      if (state.relatedRandomSeed) {
+        return randomScore(a.item.id, state.relatedRandomSeed) - randomScore(b.item.id, state.relatedRandomSeed);
+      }
+      return b.score - a.score || importanceScore(b.item) - importanceScore(a.item) || a.index - b.index;
+    })
     .map((entry) => entry.item);
 }
 
@@ -142,12 +185,20 @@ function makeCard(item) {
   button.addEventListener("click", () => {
     state.selected = item;
     state.relatedFilterTag = "";
+    state.relatedRandomSeed = 0;
     render();
   });
   return button;
 }
 
-function renderList(container, items) {
+function renderList(container, items, emptyText) {
+  if (!items.length) {
+    const empty = document.createElement("div");
+    empty.className = "empty-list";
+    empty.textContent = emptyText;
+    container.replaceChildren(empty);
+    return;
+  }
   container.replaceChildren(...items.map(makeCard));
 }
 
@@ -176,6 +227,7 @@ function renderSelected() {
   selectedDetail.querySelectorAll("[data-related-filter]").forEach((button) => {
     button.addEventListener("click", () => {
       state.relatedFilterTag = button.dataset.relatedFilter;
+      state.relatedRandomSeed = 0;
       render();
     });
   });
@@ -211,7 +263,28 @@ function renderRelatedFilter() {
   `;
   relatedFilter.querySelector("button").addEventListener("click", () => {
     state.relatedFilterTag = "";
+    state.relatedRandomSeed = 0;
     render();
+  });
+}
+
+function renderSearchFilter() {
+  if (!state.exactTag) {
+    searchFilter.hidden = true;
+    searchFilter.replaceChildren();
+    return;
+  }
+
+  searchFilter.hidden = false;
+  searchFilter.innerHTML = `
+    <span>${escapeHtml(state.exactTag)} と一致するタグで検索中</span>
+    <button type="button">曖昧検索に戻す</button>
+  `;
+  searchFilter.querySelector("button").addEventListener("click", () => {
+    state.exactTag = "";
+    state.resultRandomSeed = 0;
+    render();
+    searchInput.focus();
   });
 }
 
@@ -223,8 +296,10 @@ function renderQuickTags() {
       button.className = "tag-button";
       button.textContent = tag;
       button.addEventListener("click", () => {
+        state.exactTag = tag;
         state.query = tag;
         searchInput.value = tag;
+        state.resultRandomSeed = 0;
         render();
         searchInput.focus();
       });
@@ -234,12 +309,19 @@ function renderQuickTags() {
 }
 
 function render() {
-  const found = searchItems().slice(0, 80);
-  const relatedFound = relatedItems();
-  resultCount.textContent = String(found.length);
-  relatedCount.textContent = String(relatedFound.length);
-  renderList(results, found);
-  renderList(related, relatedFound);
+  const allFound = searchItems();
+  const allRelatedFound = relatedItems();
+  const found = allFound.slice(0, 80);
+  const relatedFound = allRelatedFound.slice(0, 36);
+  resultCount.textContent = String(allFound.length);
+  relatedCount.textContent = String(allRelatedFound.length);
+  randomResultsButton.disabled = allFound.length < 2;
+  randomRelatedButton.disabled = allRelatedFound.length < 2;
+  randomResultsButton.classList.toggle("is-active", Boolean(state.resultRandomSeed));
+  randomRelatedButton.classList.toggle("is-active", Boolean(state.relatedRandomSeed));
+  renderSearchFilter();
+  renderList(results, found, state.query ? "一致する絵文字がありません。" : "検索語を入れるか、候補タグを選んでください。");
+  renderList(related, relatedFound, state.selected ? "関連する絵文字がありません。" : "絵文字を選ぶと関連候補を表示します。");
   renderRelatedFilter();
   renderSelected();
 }
@@ -254,6 +336,18 @@ function escapeHtml(value) {
 
 searchInput.addEventListener("input", (event) => {
   state.query = event.target.value;
+  state.exactTag = "";
+  state.resultRandomSeed = 0;
+  render();
+});
+
+randomResultsButton.addEventListener("click", () => {
+  state.resultRandomSeed = Math.floor(Math.random() * 2 ** 31) + 1;
+  render();
+});
+
+randomRelatedButton.addEventListener("click", () => {
+  state.relatedRandomSeed = Math.floor(Math.random() * 2 ** 31) + 1;
   render();
 });
 

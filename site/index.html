@@ -18,15 +18,19 @@
 
       <section class="search-panel" aria-label="検索">
         <label class="search-label" for="searchInput">検索語</label>
-        <input id="searchInput" type="search" autocomplete="off" placeholder="笑顔 夏 動物 楕円 ふわふわ びっくり など">
+        <input id="searchInput" type="search" autocomplete="off" placeholder="ありがとう 仕事 旅行 楕円 ふわふわ 青い旗 など">
         <div id="quickTags" class="quick-tags" aria-label="候補タグ"></div>
+        <div id="searchFilter" class="related-filter search-filter" hidden></div>
       </section>
 
       <section class="workspace" aria-label="検索結果">
         <section class="pane">
           <div class="pane-heading">
             <h2>ヒット</h2>
-            <span id="resultCount">0</span>
+            <div class="pane-actions">
+              <button id="randomResultsButton" class="random-button" type="button">ランダム</button>
+              <span id="resultCount">0</span>
+            </div>
           </div>
           <div id="results" class="emoji-grid"></div>
         </section>
@@ -38,7 +42,10 @@
         <section class="pane">
           <div class="pane-heading">
             <h2 id="relatedTitle">関連</h2>
-            <span id="relatedCount">0</span>
+            <div class="pane-actions">
+              <button id="randomRelatedButton" class="random-button" type="button">ランダム</button>
+              <span id="relatedCount">0</span>
+            </div>
           </div>
           <div id="relatedFilter" class="related-filter" hidden></div>
           <div id="related" class="emoji-grid"></div>
