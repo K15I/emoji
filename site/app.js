@@ -1,7 +1,8 @@
 const data = window.EMOJI_DATA?.items ?? [];
 const visibleData = data.filter((item) => !item.hidden_variant);
 
-const SKIN_TONE_REGEX = /:\s*(light|medium-light|medium|medium-dark|dark)\s+skin\s+tone$/i;
+const SKIN_TONE_REGEX = /(?:[:,]\s*)?(light|medium-light|medium|medium-dark|dark)\s+skin\s+tone/i;
+const SKIN_TONE_CLEANUP_REGEX = /\b(?:light|medium-light|medium|medium-dark|dark)\s+skin\s+tone\b/gi;
 const SKIN_TONE_ORDER = ["default", "light", "medium-light", "medium", "medium-dark", "dark"];
 const SKIN_TONE_LABELS = {
   default: "標準",
@@ -50,7 +51,14 @@ const presetTags = [
 const { groupByItemId } = buildSkinToneGroups(visibleData);
 
 function extractBaseName(name) {
-  return name.replace(SKIN_TONE_REGEX, "").trim();
+  return name
+    .replace(SKIN_TONE_CLEANUP_REGEX, "")
+    .replace(/\s*,\s*,/g, ",")
+    .replace(/:\s*,\s*/g, ": ")
+    .replace(/,\s*:/g, ":")
+    .replace(/,\s*$/g, "")
+    .replace(/:\s*$/g, "")
+    .trim();
 }
 
 function extractSkinTone(name) {
