@@ -3,28 +3,29 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>連想絵文字検索 dev</title>
+    <meta name="description" content="読み方を知らなくても、言葉や気持ちから引ける絵文字辞典です。">
+    <title>絵文字辞典 dev</title>
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
     <main class="app-shell">
       <header class="topbar">
         <div>
-          <h1>連想絵文字検索</h1>
-          <p>言葉、場面、形から絵文字を探す</p>
+          <h1>絵文字辞典</h1>
+          <p>読み方を知らなくても、言葉や気持ちから引ける</p>
         </div>
         <button id="copyButton" class="copy-button" type="button" disabled>コピー</button>
       </header>
 
       <section class="search-panel" aria-label="検索">
         <div class="search-row">
-          <label class="search-label" for="searchInput">検索語</label>
+          <label class="search-label" for="searchInput">言葉や気持ちで検索</label>
           <div class="search-mode" role="group" aria-label="検索方法">
             <button id="fuzzyModeButton" class="mode-button is-active" type="button">あいまい検索</button>
             <button id="exactModeButton" class="mode-button" type="button">一致検索</button>
           </div>
         </div>
-        <input id="searchInput" type="search" autocomplete="off" placeholder="ありがとう 夏 動物 ふわふわ 三色旗">
+        <input id="searchInput" type="search" autocomplete="off" placeholder="うれしい ありがとう 夏 ふわふわ びっくり">
         <div id="quickTags" class="quick-tags" aria-label="候補タグ"></div>
         <div id="selectedInline" class="selected-inline selected-empty">絵文字を選ぶと、ここに関連語を表示します。</div>
       </section>
