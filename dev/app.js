@@ -29,6 +29,7 @@ const resultCount = document.querySelector("#resultCount");
 const hitTags = document.querySelector("#hitTags");
 const copyButton = document.querySelector("#copyButton");
 const randomResultsButton = document.querySelector("#randomResultsButton");
+const COPIED_BUTTON_TEXT = "コピーしました";
 
 const presetTags = [
   "笑顔",
@@ -345,6 +346,7 @@ function renderHitTags(foundGroups) {
 function renderSelectedInline() {
   const item = selectedItem();
   copyButton.disabled = !item;
+  copyButton.textContent = item ? `${item.emoji}をコピー` : "絵文字を選んでコピー";
   if (!state.selectedGroup || !item) {
     selectedInline.className = "selected-inline selected-empty";
     selectedInline.textContent = "絵文字を選ぶと、ここに関連語を表示します。";
@@ -472,9 +474,9 @@ copyButton.addEventListener("click", async () => {
   const item = selectedItem();
   if (!item) return;
   await navigator.clipboard.writeText(item.emoji);
-  copyButton.textContent = "コピー済み";
+  copyButton.textContent = COPIED_BUTTON_TEXT;
   window.setTimeout(() => {
-    copyButton.textContent = "コピー";
+    copyButton.textContent = `${selectedItem()?.emoji || item.emoji}をコピー`;
   }, 900);
 });
 

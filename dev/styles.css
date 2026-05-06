@@ -76,8 +76,11 @@ h1 {
 }
 
 .copy-button {
-  min-width: 88px;
+  min-width: 150px;
   min-height: 40px;
+  padding: 0 12px;
+  font-size: 13px;
+  white-space: nowrap;
 }
 
 .copy-button:not(:disabled) {
