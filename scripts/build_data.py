@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_SOURCE = ROOT / "data" / "emoji_enriched.csv"
+DEFAULT_SOURCE = ROOT / "data" / "emoji17.csv"
 JSON_OUT = ROOT / "site" / "data" / "emoji.json"
 JS_OUT = ROOT / "site" / "data" / "emoji-data.js"
 

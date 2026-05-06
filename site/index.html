@@ -11,47 +11,39 @@
       <header class="topbar">
         <div>
           <h1>連想絵文字検索</h1>
-          <p>言葉、場面、気分、形や色から絵文字を探せます。</p>
+          <p>言葉、場面、形から絵文字を探す</p>
         </div>
         <button id="copyButton" class="copy-button" type="button" disabled>コピー</button>
       </header>
 
       <section class="search-panel" aria-label="検索">
-        <label class="search-label" for="searchInput">検索語</label>
-        <input id="searchInput" type="search" autocomplete="off" placeholder="ありがとう 仕事 旅行 楕円 ふわふわ 青い旗 など">
+        <div class="search-row">
+          <label class="search-label" for="searchInput">検索語</label>
+          <div class="search-mode" role="group" aria-label="検索方法">
+            <button id="fuzzyModeButton" class="mode-button is-active" type="button">あいまい検索</button>
+            <button id="exactModeButton" class="mode-button" type="button">一致検索</button>
+          </div>
+        </div>
+        <input id="searchInput" type="search" autocomplete="off" placeholder="ありがとう 夏 動物 ふわふわ 三色旗">
         <div id="quickTags" class="quick-tags" aria-label="候補タグ"></div>
-        <div id="searchFilter" class="related-filter search-filter" hidden></div>
+        <div id="selectedInline" class="selected-inline selected-empty">絵文字を選ぶと、ここに関連語を表示します。</div>
       </section>
 
-      <section class="workspace" aria-label="検索結果">
-        <section class="pane">
-          <div class="pane-heading">
+      <section class="result-pane" aria-label="検索結果">
+        <div class="pane-heading">
+          <div class="pane-title-line">
             <h2>ヒット</h2>
-            <div class="pane-actions">
-              <button id="randomResultsButton" class="random-button" type="button">ランダム</button>
-              <span id="resultCount">0</span>
-            </div>
+            <span id="resultCount" class="result-count">0個</span>
           </div>
-          <div id="results" class="emoji-grid"></div>
-        </section>
-
-        <section class="detail-pane">
-          <div id="selectedDetail" class="selected-empty">絵文字を選ぶと、同じタグを持つ候補を右に表示します。</div>
-        </section>
-
-        <section class="pane">
-          <div class="pane-heading">
-            <h2 id="relatedTitle">関連</h2>
-            <div class="pane-actions">
-              <button id="randomRelatedButton" class="random-button" type="button">ランダム</button>
-              <span id="relatedCount">0</span>
-            </div>
+          <div id="hitTags" class="hit-tags" aria-label="ヒットしたタグ"></div>
+          <div class="pane-actions">
+            <button id="randomResultsButton" class="random-button" type="button">ランダム</button>
           </div>
-          <div id="relatedFilter" class="related-filter" hidden></div>
-          <div id="related" class="emoji-grid"></div>
-        </section>
+        </div>
+        <div id="results" class="emoji-grid"></div>
       </section>
     </main>
+
     <script src="./data/emoji-data.js"></script>
     <script src="./app.js"></script>
   </body>

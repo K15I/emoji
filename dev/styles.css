@@ -267,6 +267,7 @@ h1 {
 }
 
 .emoji-card {
+  position: relative;
   display: grid;
   grid-template-rows: 1fr auto;
   place-items: center;
@@ -290,6 +291,17 @@ h1 {
 .emoji-card.is-selected {
   border-color: var(--accent);
   background: var(--accent-soft);
+}
+
+.skin-indicator {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  width: 14px;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ffcc4d 0 18%, #f7d7c4 18% 34%, #f2c28e 34% 50%, #d5a57a 50% 66%, #a57a5a 66% 82%, #6b4423 82% 100%);
+  opacity: 0.62;
 }
 
 .emoji-char {
@@ -356,6 +368,75 @@ h1 {
   white-space: nowrap;
   color: var(--muted);
   margin-top: 4px;
+}
+
+.skin-tone-selector {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.skin-tone-dot {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.skin-tone-dot::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  transition: transform 120ms ease;
+}
+
+.skin-tone-dot:hover::before,
+.skin-tone-dot:focus-visible::before {
+  transform: scale(1.15);
+}
+
+.skin-tone-dot[aria-current="true"]::after {
+  position: absolute;
+  bottom: 0;
+  left: 6px;
+  right: 6px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--accent);
+  content: "";
+}
+
+.skin-tone-default::before {
+  background: #ffcc4d;
+}
+
+.skin-tone-light::before {
+  background: #f7d7c4;
+}
+
+.skin-tone-medium-light::before {
+  background: #f2c28e;
+}
+
+.skin-tone-medium::before {
+  background: #d5a57a;
+}
+
+.skin-tone-medium-dark::before {
+  background: #a57a5a;
+}
+
+.skin-tone-dark::before {
+  background: #6b4423;
 }
 
 .chips {
