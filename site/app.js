@@ -35,17 +35,13 @@ const COPIED_BUTTON_TEXT = "コピーしました";
 
 const presetTags = [
   "笑顔",
-  "ありがとう",
-  "お祝い",
-  "仕事",
-  "旅行",
-  "動物",
-  "食べ物",
-  "ふわふわ",
-  "楕円",
-  "速い",
-  "青い旗",
-  "日の丸",
+  "ハート",
+  "カフェ",
+  "専門職",
+  "撮る",
+  "白",
+  "入力",
+  "リラックス",
 ];
 
 const { groupByItemId } = buildSkinToneGroups(visibleData);
