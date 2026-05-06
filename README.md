@@ -1,18 +1,20 @@
 # 絵文字辞典
 
-読み方を知らなくても、言葉や気持ちから引ける静的Webアプリです。
+読み方を知らなくても、言葉や気持ちから絵文字を引けるWebアプリです。
 
-IME変換では、絵文字の正式名や読み方を知らないと目的の絵文字にたどり着きにくいことがあります。このアプリでは、`笑顔`、`夏`、`動物`、`ふわふわ`、`楕円`、`青い旗` のような思いつきの言葉から絵文字を検索できます。
+IME変換では、絵文字の正式名称や読み方を知らないと目的の絵文字にたどり着きにくいことがあります。このアプリでは、「笑顔」「夏」「動物」「ふわふわ」「嬉しい」「青い旗」のような思いつきの言葉から検索できるようにします。
 
-## 現在の構成
+## 構成
 
 ```text
-data/emoji17.csv          編集元の完成版CSV
+data/emoji17.csv          編集元CSV
 site/                     本体アプリ
-site/data/emoji.json      サイト用データ
-site/data/emoji-data.js   ブラウザ読み込み用データ
+site/data/emoji.json      本番用データ
+site/data/emoji-data.js   本番用ブラウザ読み込みデータ
+dev/data/emoji.json       試作用データ
+dev/data/emoji-data.js    試作用ブラウザ読み込みデータ
 dev/                      UI試作用コピー
-scripts/build_data.py     CSVからJSON/JSを再生成するスクリプト
+scripts/build_data.py     CSVからJSON/JSを生成する
 ```
 
 `site/` と `dev/` は相対パスで動くようにしています。ローカル確認や静的ホスティングでは、フォルダごと配置して表示できます。
@@ -39,32 +41,9 @@ python -m http.server 5174 --directory dev
 
 ## データ運用
 
-編集元は `data/emoji17.csv` です。次のタグ見直し作業でも、基本的にはこのCSVを編集します。
+編集元は `data/emoji17.csv` です。
 
-CSVを変更したら、サイト用JSON/JSを再生成します。
-
-```powershell
-python scripts/build_data.py
-```
-
-明示する場合:
-
-```powershell
-python scripts/build_data.py --source data/emoji17.csv
-```
-
-生成されるファイル:
-
-```text
-site/data/emoji.json
-site/data/emoji-data.js
-```
-
-`dev/data/` は試作用コピーです。本体データを更新したあと、devでも同じデータを確認したい場合は `site/data/` からコピーしてください。
-
-## CSV列
-
-`data/emoji17.csv` の主な列:
+現在の基本列:
 
 ```text
 id
@@ -77,40 +56,64 @@ category_ja
 subcategory
 subcategory_ja
 unicode_version
-tags_ja
-scenes_ja
-tone_ja
 importance
 ```
 
-`tags_ja`、`scenes_ja`、`tone_ja` は `;` 区切りです。
-
-分類の目安:
+タグ作業で追加する列:
 
 ```text
-tags_ja   : 物を特定する語、分類、固有名、部品
-scenes_ja : 場面、用途、行動、場所、文化圏
-tone_ja   : 感情、雰囲気、感覚、見た目、形、色、質感
+direct_ja
+visual_ja
+context_ja
+symbolic_ja
+emotion_ja
+action_ja
+culture_ja
+search_ja
 ```
 
-`assoc_ja` は完成版CSVから外しています。サイト側では `tags_ja`、`scenes_ja`、`tone_ja`、`category_ja`、`subcategory_ja` を検索と関連語表示に使います。
+旧 `tags_ja`、`scenes_ja`、`tone_ja` はCSV編集列にもサイト用JSONにも使いません。サイト表示用には、`scripts/build_data.py` が8分類から色数を抑えたチップ用データを生成します。
+
+折りたたみ方:
+
+```text
+direct_ja + symbolic_ja             -> meaning_ja
+context_ja + action_ja + culture_ja -> usage_ja
+visual_ja + emotion_ja              -> impression_ja
+category_ja + subcategory_ja        -> class_ja
+```
+
+## サイト用データ生成
+
+CSVを変更した後、サイト用JSON/JSを生成します。
+
+```powershell
+python scripts/build_data.py
+```
+
+生成されるファイル:
+
+```text
+site/data/emoji.json
+site/data/emoji-data.js
+```
+
+`dev/data/` は試作用コピーです。`scripts/build_data.py` は `site/data/` と `dev/data/` の両方を同時に更新します。
 
 ## 検索仕様
 
 検索モードは2種類です。
 
 ```text
-あいまい検索 : 手入力向け。部分一致や包含一致を許容する。
-一致検索     : タグや関連語チップ向け。完全一致した語だけで絞り込む。
+あいまい検索 : 手入力向け。部分一致や包含一致を許可する。
+一致検索     : タグや関連語チップ向け。完全一致した語で絞り込む。
 ```
 
-上部の候補タグ、選択中絵文字の関連語、ヒット欄のタグを押した場合は、一致検索に切り替わります。たとえば `三色旗` を押した場合、`旗` 全般ではなく `三色旗` タグを持つ候補だけを表示します。
+検索結果は重要度とマッチスコアで並びます。ランダムボタンは解除トグルではなく、押すたびにヒット候補をランダムに並べ替えます。
 
-検索結果は重要度とマッチスコアで並びます。`ランダム` ボタンは解除トグルではなく、押すたびにヒットした候補をランダムに並べ替えます。
+## 肌色バリエーション
 
-## 肌色集約
-
-肌色違いの絵文字は、一覧ではベース絵文字1枚に集約します。
+肌色違いの絵文字は、一覧ではベース絵文字の1カードに集約します。
 
 例:
 
@@ -123,69 +126,60 @@ waving hand: medium-dark skin tone
 waving hand: dark skin tone
 ```
 
-上記は一覧では1枚のカードとして表示されます。カード右下の小さなインジケーターは、肌色バリエーションがあることを示します。
+一覧では1枚のカードとして表示し、詳細内で肌色を選べます。コピーされる絵文字は現在選択中の肌色を反映します。
 
-絵文字を選択すると、詳細欄で肌色ドットを選べます。コピーされる絵文字は、現在選択中の肌色を反映します。
+2人分の肌色を組み合わせる派生絵文字は、検索結果と肌色候補からは非表示にします。例として、握手、手をつなぐ、キスするカップル、ハートのカップルなどの `light skin tone, medium skin tone` 形式の派生は `scripts/build_data.py` が `hidden_variant: true` を付け、UIは表示対象から外します。`importance` は表示可否には使わず、順位付けの意味だけに保ちます。
 
-## 重要度
+タグ作業では、肌色違いの各行にベース絵文字と同じ検索語を複製しません。ベース絵文字に検索タグを厚く付け、肌色違いは詳細欄の選択UIで扱います。
 
-`importance` は検索結果の並び順に使います。
+`scripts/export_codex_batch.py` は、標準では肌色違いの行を出力しません。タグ作業はベース絵文字だけを対象にします。`scripts/build_data.py` はサイト用データ生成時に、肌色違いへベース絵文字のタグを出力上だけ引き継ぎます。CSV上で肌色違いのタグを手で考える必要はありません。
+
+## タグ作業
+
+今回のタグ修正はCodexで行います。外部AIへ一括依頼しません。
+
+参照する作業資料:
 
 ```text
-3: よく使う、画像生成向き、代表性が高い
-2: 通常候補
-1: 色違い、記号、旗、細かいバリエーションなど優先度が低い
+test/00_tag_rules.md
+test/01_abstract_words.md
+test/02_batch_workflow.md
+test/2026-0506-0815タグ作成.md
+test/2026-0506-1947作業指示.md
 ```
 
-肌色集約後は、グループ単位で並び替えます。重要度は代表絵文字のものを使います。
+補助スクリプト:
 
-## 動作確認
+```text
+scripts/export_codex_batch.py
+scripts/import_codex_patch.py
+scripts/audit_emoji_data.py
+```
 
-JavaScript構文確認:
+対象を小分けにJSONL化する例:
 
 ```powershell
-node --check site/app.js
+python scripts/export_codex_batch.py --subcategory face-smiling --lean --output work/batches/face-smiling.jsonl
 ```
 
-データ件数確認:
+肌色違いも含めて確認したい特殊な場合だけ `--include-skin` を付けます。
+
+JSONLパッチをCSVへ反映する例:
 
 ```powershell
-python -c "import json; p=json.load(open('site/data/emoji.json', encoding='utf-8')); print(p['source'], p['count'])"
+python scripts/import_codex_patch.py work/results/face-smiling.patch.jsonl --csv data/emoji17.csv
 ```
 
-CSVから再生成できるか確認:
+監査:
 
 ```powershell
-python scripts/build_data.py
+python scripts/audit_emoji_data.py --limit 40
 ```
 
-## 主要スクリプト
+CSVはBOM付きUTF-8で扱います。
 
-```text
-scripts/build_data.py
-```
+## 注意
 
-CSVから `site/data/emoji.json` と `site/data/emoji-data.js` を生成します。
+`test/emoji17_0505.csv` は過去版の退避です。今回の編集元にはしません。
 
-```text
-scripts/import_unicode_emoji.py
-scripts/enrich_japanese_data.py
-scripts/assign_importance.py
-```
-
-Unicode Emojiデータの取り込み、日本語名・分類補助、重要度付けに使ったスクリプトです。
-
-```text
-scripts/generate_assoc.py
-scripts/split_assoc_columns.py
-scripts/classify_associations.py
-```
-
-連想語生成と、`tags_ja`、`scenes_ja`、`tone_ja` への分割に使ったスクリプトです。
-
-```text
-scripts/export_gemini_batch.py
-scripts/import_gemini_patch.py
-```
-
-外部AIに小分け作業を渡すためのJSONL入出力補助です。
+タグがまだ空の段階で `scripts/build_data.py` を実行すると、空タグのサイト用データで `site/data` を上書きします。タグ投入後に実行します。

@@ -470,15 +470,15 @@ h1 {
   background: var(--accent-soft);
 }
 
-.chip-tag {
+.chip-meaning {
   background: #e6f3ef;
 }
 
-.chip-scene {
+.chip-usage {
   background: #fff1d6;
 }
 
-.chip-tone {
+.chip-impression {
   background: #edf0ff;
 }
 

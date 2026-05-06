@@ -1,4 +1,5 @@
 const data = window.EMOJI_DATA?.items ?? [];
+const visibleData = data.filter((item) => !item.hidden_variant);
 
 const SKIN_TONE_REGEX = /:\s*(light|medium-light|medium|medium-dark|dark)\s+skin\s+tone$/i;
 const SKIN_TONE_ORDER = ["default", "light", "medium-light", "medium", "medium-dark", "dark"];
@@ -46,7 +47,7 @@ const presetTags = [
   "日の丸",
 ];
 
-const { groupByItemId } = buildSkinToneGroups(data);
+const { groupByItemId } = buildSkinToneGroups(visibleData);
 
 function extractBaseName(name) {
   return name.replace(SKIN_TONE_REGEX, "").trim();
@@ -111,16 +112,16 @@ function classTerms(item) {
 
 function typedTerms(item) {
   return {
-    tags: arrayValue(item.tags_ja),
-    scenes: arrayValue(item.scenes_ja),
-    tones: arrayValue(item.tone_ja),
+    meaning: arrayValue(item.meaning_ja),
+    usage: arrayValue(item.usage_ja),
+    impression: arrayValue(item.impression_ja),
     classes: classTerms(item),
   };
 }
 
 function allTerms(item) {
   const terms = typedTerms(item);
-  return [...terms.tags, ...terms.scenes, ...terms.tones, ...terms.classes];
+  return [...terms.meaning, ...terms.usage, ...terms.impression, ...terms.classes];
 }
 
 function groupTerms(group) {
@@ -192,7 +193,7 @@ function searchGroups() {
   const terms = termsFromQuery(state.query);
   const aggregate = new Map();
 
-  data.forEach((item, index) => {
+  visibleData.forEach((item, index) => {
     const score = scoreItem(item, terms);
     if (score <= 0) return;
     const group = groupByItemId.get(item.id);
@@ -366,9 +367,9 @@ function renderSelectedInline() {
       </div>
     </section>
     <div class="chips merged-chips">
-      ${terms.tags.map((value) => chipMarkup(value, "tag")).join("")}
-      ${terms.scenes.map((value) => chipMarkup(value, "scene")).join("")}
-      ${terms.tones.map((value) => chipMarkup(value, "tone")).join("")}
+      ${terms.meaning.map((value) => chipMarkup(value, "meaning")).join("")}
+      ${terms.usage.map((value) => chipMarkup(value, "usage")).join("")}
+      ${terms.impression.map((value) => chipMarkup(value, "impression")).join("")}
       ${terms.classes.map((value) => chipMarkup(value, "class")).join("")}
     </div>
   `;

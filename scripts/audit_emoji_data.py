@@ -3,7 +3,14 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-from emoji_assoc import DEFAULT_CSV, read_rows, split_list
+from emoji_assoc import DEFAULT_CSV, V2_FIELDS, is_skin_tone_variant, read_rows, search_pool, split_list
+
+
+REQUIRED_MIN_SEARCH_TERMS = {
+    "3": 12,
+    "2": 8,
+    "1": 6,
+}
 
 
 def main():
@@ -17,41 +24,50 @@ def main():
 
     rows, _ = read_rows(args.csv)
     warnings = []
-    scene_counter = Counter()
-    tone_counter = Counter()
+    usage_counter = Counter()
+    impression_counter = Counter()
+    v2_empty_counter = Counter()
 
     for row in rows:
-        tags = split_list(row.get("tags_ja", ""))
-        scenes = split_list(row.get("scenes_ja", ""))
-        tones = split_list(row.get("tone_ja", ""))
-        assoc = split_list(row.get("assoc_ja", ""))
+        skin_variant = is_skin_tone_variant(row)
+        usage = []
+        impression = []
+        for field in ("context_ja", "action_ja", "culture_ja"):
+            usage.extend(split_list(row.get(field, "")))
+        for field in ("visual_ja", "emotion_ja"):
+            impression.extend(split_list(row.get(field, "")))
+        search_terms = search_pool(row)
 
-        scene_counter.update([";".join(scenes)])
-        tone_counter.update([";".join(tones)])
+        usage_counter.update([";".join(usage)])
+        impression_counter.update([";".join(impression)])
+        for field in V2_FIELDS:
+            if field != "search_ja" and not split_list(row.get(field, "")):
+                v2_empty_counter.update([field])
 
         if row.get("name_ja") == row.get("name_en"):
             warnings.append((row, "name_ja is still English"))
-        if len(assoc) < 6:
-            warnings.append((row, "assoc_ja is shallow"))
-        if len(tags) < 4:
-            warnings.append((row, "tags_ja is shallow"))
-        if len(scenes) < 2:
-            warnings.append((row, "scenes_ja is shallow"))
-        if len(tones) < 2:
-            warnings.append((row, "tone_ja is shallow"))
+        expected = 0 if skin_variant else REQUIRED_MIN_SEARCH_TERMS.get(str(row.get("importance", "")).strip(), 7)
+        if expected and len(search_terms) < expected:
+            warnings.append((row, f"search terms are shallow ({len(search_terms)}/{expected})"))
+        if split_list(row.get("search_ja", "")) and len(search_terms) != len(set(search_terms)):
+            warnings.append((row, "search_ja has duplicate terms"))
 
     print(f"Rows: {len(rows)}")
     print(f"Warnings: {len(warnings)}")
     for row, reason in warnings[: args.limit]:
         print(f"{row['emoji']} {row['name_en']} / {row.get('name_ja', '')}: {reason}")
 
-    print("\nRepeated scenes:")
-    for value, count in scene_counter.most_common(10):
+    print("\nEmpty v2 fields:")
+    for field, count in v2_empty_counter.most_common():
+        print(f"{field}: {count}")
+
+    print("\nRepeated usage groups:")
+    for value, count in usage_counter.most_common(10):
         if count > 10:
             print(f"{count}: {value}")
 
-    print("\nRepeated tones:")
-    for value, count in tone_counter.most_common(10):
+    print("\nRepeated impression groups:")
+    for value, count in impression_counter.most_common(10):
         if count > 10:
             print(f"{count}: {value}")
 
