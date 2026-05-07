@@ -3,3 +3,6 @@ COMMIT_PLAN.md
 __pycache__/
 test/
 work/
+archive/
+instruction/
+record/

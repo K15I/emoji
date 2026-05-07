@@ -278,20 +278,19 @@ function renderQuickTags() {
   );
 }
 
-function applySearch(query, mode = state.searchMode) {
+function applySearch(query, mode = state.searchMode, options = {}) {
   state.query = query;
   state.searchMode = mode;
   state.resultRandomSeed = 0;
   searchInput.value = query;
   render();
-  searchInput.focus();
+  if (options.focus) searchInput.focus();
 }
 
 function setSearchMode(mode) {
   state.searchMode = mode;
   state.resultRandomSeed = 0;
   render();
-  searchInput.focus();
 }
 
 function renderSearchMode() {
