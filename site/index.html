@@ -9,26 +9,31 @@
   </head>
   <body>
     <main class="app-shell">
-      <header class="topbar">
-        <div>
-          <h1>絵文字辞典</h1>
-          <p>読み方を知らなくても、言葉や気持ちから引ける</p>
-        </div>
-        <button id="copyButton" class="copy-button" type="button" disabled>絵文字を選んでコピー</button>
-      </header>
-
-      <section class="search-panel" aria-label="検索">
-        <div class="search-row">
-          <label class="search-label" for="searchInput">言葉や気持ちで検索</label>
-          <div class="search-mode" role="group" aria-label="検索方法">
-            <button id="fuzzyModeButton" class="mode-button is-active" type="button">あいまい検索</button>
-            <button id="exactModeButton" class="mode-button" type="button">一致検索</button>
+      <div class="sticky-workbench">
+        <header class="topbar">
+          <div>
+            <h1>絵文字辞典</h1>
+            <p>読み方を知らなくても、言葉や気持ちから引ける</p>
           </div>
-        </div>
-        <input id="searchInput" type="search" autocomplete="off" placeholder="笑顔 ハート カフェ 白 入力">
-        <div id="quickTags" class="quick-tags" aria-label="候補タグ"></div>
-        <div id="selectedInline" class="selected-inline selected-empty">絵文字を選ぶと、ここに関連語を表示します。</div>
-      </section>
+          <button id="copyButton" class="copy-button" type="button" disabled>絵文字を選んでコピー</button>
+        </header>
+
+        <div id="stockWorkbench" class="stock-workbench stock-empty">＋ストックでまとめてコピー用に追加</div>
+
+        <section class="search-panel" aria-label="検索">
+          <div class="search-row">
+            <label class="search-label" for="searchInput">言葉や気持ちで検索</label>
+            <div class="search-mode" role="group" aria-label="検索方法">
+              <button id="fuzzyModeButton" class="mode-button is-active" type="button">あいまい検索</button>
+              <button id="exactModeButton" class="mode-button" type="button">一致検索</button>
+            </div>
+          </div>
+          <input id="searchInput" type="search" autocomplete="off" placeholder="笑顔 ハート カフェ 白 入力">
+          <div id="quickTags" class="quick-tags" aria-label="候補タグ"></div>
+        </section>
+      </div>
+
+      <div id="selectedInline" class="selected-inline selected-empty">絵文字を選ぶと、ここに関連語を表示します。</div>
 
       <section class="result-pane" aria-label="検索結果">
         <div class="pane-heading">
