@@ -25,6 +25,13 @@ V2_FIELDS = (
     "search_ja",
 )
 LIST_FIELDS = V2_FIELDS
+ABSTRACT_GROUP_FIELDS = (
+    "abstract_group_id",
+    "abstract_group_role",
+    "abstract_variant_kind",
+    "abstract_is_source",
+    "abstract_group_key",
+)
 SKIN_TONE_WORD_RE = re.compile(
     r"\b(?:light|medium-light|medium|medium-dark|dark)\s+skin\s+tone\b",
     re.I,
@@ -93,6 +100,8 @@ def normalize_row(row):
         "subcategory_ja": clean(row.get("subcategory_ja", "")),
         "unicode_version": clean(row["unicode_version"]),
     }
+    for field in ABSTRACT_GROUP_FIELDS:
+        item[field] = clean(row.get(field, ""))
     if is_hidden_variant(row):
         item["hidden_variant"] = True
         item["variant_kind"] = "multi_skin"
