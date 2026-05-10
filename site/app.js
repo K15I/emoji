@@ -1,6 +1,8 @@
 const data = window.EMOJI_DATA?.items ?? [];
+const visibleData = data.filter((item) => !item.hidden_variant);
 
-const SKIN_TONE_REGEX = /:\s*(light|medium-light|medium|medium-dark|dark)\s+skin\s+tone$/i;
+const SKIN_TONE_REGEX = /(?:[:,]\s*)?(light|medium-light|medium|medium-dark|dark)\s+skin\s+tone/i;
+const SKIN_TONE_CLEANUP_REGEX = /\b(?:light|medium-light|medium|medium-dark|dark)\s+skin\s+tone\b/gi;
 const SKIN_TONE_ORDER = ["default", "light", "medium-light", "medium", "medium-dark", "dark"];
 const SKIN_TONE_LABELS = {
   default: "標準",
@@ -16,6 +18,8 @@ const state = {
   searchMode: "fuzzy",
   selectedGroup: null,
   selectedTone: "default",
+  copiedEmoji: "",
+  stock: [],
   resultRandomSeed: 0,
 };
 
@@ -23,33 +27,36 @@ const searchInput = document.querySelector("#searchInput");
 const fuzzyModeButton = document.querySelector("#fuzzyModeButton");
 const exactModeButton = document.querySelector("#exactModeButton");
 const quickTags = document.querySelector("#quickTags");
+const stockWorkbench = document.querySelector("#stockWorkbench");
 const selectedInline = document.querySelector("#selectedInline");
 const results = document.querySelector("#results");
 const resultCount = document.querySelector("#resultCount");
 const hitTags = document.querySelector("#hitTags");
 const copyButton = document.querySelector("#copyButton");
 const randomResultsButton = document.querySelector("#randomResultsButton");
-const COPIED_BUTTON_TEXT = "コピーしました";
 
 const presetTags = [
   "笑顔",
-  "ありがとう",
-  "お祝い",
-  "仕事",
-  "旅行",
-  "動物",
-  "食べ物",
-  "ふわふわ",
-  "楕円",
-  "速い",
-  "青い旗",
-  "日の丸",
+  "ハート",
+  "カフェ",
+  "専門職",
+  "撮る",
+  "白",
+  "入力",
+  "リラックス",
 ];
 
-const { groupByItemId } = buildSkinToneGroups(data);
+const { groupByItemId } = buildSkinToneGroups(visibleData);
 
 function extractBaseName(name) {
-  return name.replace(SKIN_TONE_REGEX, "").trim();
+  return name
+    .replace(SKIN_TONE_CLEANUP_REGEX, "")
+    .replace(/\s*,\s*,/g, ",")
+    .replace(/:\s*,\s*/g, ": ")
+    .replace(/,\s*:/g, ":")
+    .replace(/,\s*$/g, "")
+    .replace(/:\s*$/g, "")
+    .trim();
 }
 
 function extractSkinTone(name) {
@@ -111,16 +118,16 @@ function classTerms(item) {
 
 function typedTerms(item) {
   return {
-    tags: arrayValue(item.tags_ja),
-    scenes: arrayValue(item.scenes_ja),
-    tones: arrayValue(item.tone_ja),
+    meaning: arrayValue(item.meaning_ja),
+    usage: arrayValue(item.usage_ja),
+    impression: arrayValue(item.impression_ja),
     classes: classTerms(item),
   };
 }
 
 function allTerms(item) {
   const terms = typedTerms(item);
-  return [...terms.tags, ...terms.scenes, ...terms.tones, ...terms.classes];
+  return [...terms.meaning, ...terms.usage, ...terms.impression, ...terms.classes];
 }
 
 function groupTerms(group) {
@@ -192,7 +199,7 @@ function searchGroups() {
   const terms = termsFromQuery(state.query);
   const aggregate = new Map();
 
-  data.forEach((item, index) => {
+  visibleData.forEach((item, index) => {
     const score = scoreItem(item, terms);
     if (score <= 0) return;
     const group = groupByItemId.get(item.id);
@@ -221,12 +228,55 @@ function selectedItem() {
   return itemForTone(state.selectedGroup, state.selectedTone);
 }
 
+async function copyEmoji(item) {
+  if (!item) return;
+  await navigator.clipboard.writeText(item.emoji);
+  state.copiedEmoji = item.emoji;
+  copyButton.textContent = `${item.emoji}をコピーしました`;
+}
+
 function itemForTone(group, tone) {
   return group.variations.find((variation) => variation.tone === tone)?.item || group.baseItem;
 }
 
+function selectGroup(group, options = {}) {
+  if (state.selectedGroup?.id !== group.id) state.selectedTone = group.defaultTone;
+  state.selectedGroup = group;
+  render();
+  if (options.scrollToTop) {
+    window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+}
+
+function addSelectedToStock() {
+  const item = selectedItem();
+  if (!item) return;
+  state.stock = [...state.stock, item.emoji].slice(-20);
+  render();
+}
+
+function removeStockAt(index) {
+  state.stock = state.stock.filter((_, itemIndex) => itemIndex !== index);
+  render();
+}
+
+async function copyStock(event) {
+  if (!state.stock.length) return;
+  await navigator.clipboard.writeText(state.stock.join(""));
+  copyButton.textContent = "ストックをコピーしました";
+  if (event?.currentTarget) event.currentTarget.textContent = "コピーしました";
+}
+
+function clearStock() {
+  state.stock = [];
+  render();
+}
+
 function makeCard(group) {
   const item = group.baseItem;
+  const isStocked = group.variations.some((variation) => state.stock.includes(variation.item.emoji));
   const button = document.createElement("button");
   button.type = "button";
   button.className = "emoji-card";
@@ -234,15 +284,20 @@ function makeCard(group) {
   if (group.hasSkinToneVariations) button.title = "肌色バリエーションあり";
   if (state.selectedGroup?.id === group.id) button.classList.add("is-selected");
   if (group.hasSkinToneVariations) button.classList.add("has-skin-tones");
+  if (isStocked) button.classList.add("is-stocked");
   button.innerHTML = `
     <span class="emoji-char">${escapeHtml(item.emoji)}</span>
     <span class="emoji-name">${escapeHtml(item.name_ja)}</span>
     ${group.hasSkinToneVariations ? '<span class="skin-indicator" aria-hidden="true"></span>' : ""}
+    ${isStocked ? '<span class="stocked-indicator" aria-hidden="true">✓</span>' : ""}
   `;
-  button.addEventListener("click", () => {
-    if (state.selectedGroup?.id !== group.id) state.selectedTone = group.defaultTone;
-    state.selectedGroup = group;
-    render();
+  button.addEventListener("click", async (event) => {
+    if (event.target.closest(".emoji-char")) {
+      selectGroup(group, { scrollToTop: true });
+      await copyEmoji(selectedItem() || item);
+      return;
+    }
+    selectGroup(group, { scrollToTop: true });
   });
   return button;
 }
@@ -273,20 +328,19 @@ function renderQuickTags() {
   );
 }
 
-function applySearch(query, mode = state.searchMode) {
+function applySearch(query, mode = state.searchMode, options = {}) {
   state.query = query;
   state.searchMode = mode;
   state.resultRandomSeed = 0;
   searchInput.value = query;
   render();
-  searchInput.focus();
+  if (options.focus) searchInput.focus();
 }
 
 function setSearchMode(mode) {
   state.searchMode = mode;
   state.resultRandomSeed = 0;
   render();
-  searchInput.focus();
 }
 
 function renderSearchMode() {
@@ -343,10 +397,45 @@ function renderHitTags(foundGroups) {
   );
 }
 
+function renderStockWorkbench() {
+  if (!state.stock.length) {
+    stockWorkbench.className = "stock-workbench stock-empty";
+    stockWorkbench.textContent = "＋ストックでまとめてコピー用に追加";
+    return;
+  }
+
+  stockWorkbench.className = "stock-workbench";
+  stockWorkbench.innerHTML = `
+    <div class="stock-items" aria-label="ストックした絵文字">
+      ${state.stock
+        .map(
+          (emoji, index) =>
+            `<button class="stock-emoji" type="button" data-stock-index="${index}" aria-label="${escapeHtml(emoji)}をストックから削除"><span>${escapeHtml(emoji)}</span><span class="stock-remove-mark" aria-hidden="true">×</span></button>`,
+        )
+        .join("")}
+    </div>
+    <div class="stock-actions">
+      <button class="stock-copy-button" type="button" data-copy-stock>まとめてコピー</button>
+      <button class="stock-clear-button" type="button" data-clear-stock>クリア</button>
+    </div>
+  `;
+
+  stockWorkbench.querySelector("[data-copy-stock]")?.addEventListener("click", copyStock);
+  stockWorkbench.querySelector("[data-clear-stock]")?.addEventListener("click", clearStock);
+  stockWorkbench.querySelectorAll("[data-stock-index]").forEach((button) => {
+    button.addEventListener("click", () => {
+      removeStockAt(Number.parseInt(button.dataset.stockIndex, 10));
+    });
+  });
+}
 function renderSelectedInline() {
   const item = selectedItem();
   copyButton.disabled = !item;
-  copyButton.textContent = item ? `${item.emoji}をコピー` : "絵文字を選んでコピー";
+  copyButton.textContent = item
+    ? item.emoji === state.copiedEmoji
+      ? `${item.emoji}をコピーしました`
+      : `${item.emoji}をコピー`
+    : "絵文字を選んでコピー";
   if (!state.selectedGroup || !item) {
     selectedInline.className = "selected-inline selected-empty";
     selectedInline.textContent = "絵文字を選ぶと、ここに関連語を表示します。";
@@ -364,11 +453,12 @@ function renderSelectedInline() {
         <div class="selected-en">${escapeHtml(group.baseItem.name_en)}</div>
         ${skinToneSelectorMarkup(group)}
       </div>
+      <button class="stock-add-button" type="button" data-add-stock>＋ストック</button>
     </section>
     <div class="chips merged-chips">
-      ${terms.tags.map((value) => chipMarkup(value, "tag")).join("")}
-      ${terms.scenes.map((value) => chipMarkup(value, "scene")).join("")}
-      ${terms.tones.map((value) => chipMarkup(value, "tone")).join("")}
+      ${terms.meaning.map((value) => chipMarkup(value, "meaning")).join("")}
+      ${terms.usage.map((value) => chipMarkup(value, "usage")).join("")}
+      ${terms.impression.map((value) => chipMarkup(value, "impression")).join("")}
       ${terms.classes.map((value) => chipMarkup(value, "class")).join("")}
     </div>
   `;
@@ -378,6 +468,7 @@ function renderSelectedInline() {
       applySearch(button.dataset.searchTag, "exact");
     });
   });
+  selectedInline.querySelector("[data-add-stock]")?.addEventListener("click", addSelectedToStock);
   selectedInline.querySelectorAll("[data-skin-tone]").forEach((button) => {
     button.addEventListener("click", () => {
       state.selectedTone = button.dataset.skinTone;
@@ -438,6 +529,7 @@ function render() {
   resultCount.textContent = `${allFound.length}個`;
   randomResultsButton.disabled = allFound.length < 2;
   renderSearchMode();
+  renderStockWorkbench();
   renderHitTags(allFound);
   renderSelectedInline();
   renderList(results, found, state.query ? "一致する絵文字がありません。" : "検索語を入れるか、候補タグを選んでください。");
@@ -472,12 +564,7 @@ randomResultsButton.addEventListener("click", () => {
 
 copyButton.addEventListener("click", async () => {
   const item = selectedItem();
-  if (!item) return;
-  await navigator.clipboard.writeText(item.emoji);
-  copyButton.textContent = COPIED_BUTTON_TEXT;
-  window.setTimeout(() => {
-    copyButton.textContent = `${selectedItem()?.emoji || item.emoji}をコピー`;
-  }, 900);
+  await copyEmoji(item);
 });
 
 renderQuickTags();

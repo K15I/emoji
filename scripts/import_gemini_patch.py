@@ -4,8 +4,10 @@ from pathlib import Path
 
 from emoji_assoc import (
     DEFAULT_CSV,
-    classify_associations,
+    V2_FIELDS,
     read_rows,
+    rebuild_search_terms,
+    join_list,
     split_list,
     unique,
     write_rows,
@@ -35,21 +37,29 @@ def apply_patch(row, patch):
     if "importance" in patch:
         row["importance"] = str(patch["importance"]).strip()
 
-    if "assoc_ja_set" in patch:
-        assoc = list(patch.get("assoc_ja_set") or [])
-    else:
-        assoc = split_list(row.get("assoc_ja", ""))
-    assoc.extend(patch.get("assoc_ja_add", []))
-    assoc.extend(patch.get("associations_ja_add", []))
-    assoc.extend(patch.get("tags_ja_add", []))
-    assoc.extend(patch.get("scenes_ja_add", []))
-    assoc.extend(patch.get("tone_ja_add", []))
+    changed_v2 = False
+    for field in V2_FIELDS:
+        explicit = (
+            f"{field}_set" in patch
+            or f"{field}_add" in patch
+            or f"{field}_remove" in patch
+        )
+        if f"{field}_set" in patch:
+            values = list(patch.get(f"{field}_set") or [])
+        else:
+            values = split_list(row.get(field, ""))
+        values.extend(patch.get(f"{field}_add", []))
+        remove = set(patch.get(f"{field}_remove", []))
+        values = [value for value in unique(values) if value not in remove]
+        row[field] = join_list(values)
+        changed_v2 = changed_v2 or explicit
 
-    remove = set(patch.get("assoc_ja_remove", []))
-    remove.update(patch.get("remove", []))
-    assoc = [value for value in unique(assoc) if value not in remove]
-    row["assoc_ja"] = ";".join(assoc)
-    return classify_associations(row)
+    if "search_ja_set" not in patch and changed_v2:
+        row["search_ja"] = join_list(rebuild_search_terms(row))
+    elif not split_list(row.get("search_ja", "")):
+        row["search_ja"] = join_list(rebuild_search_terms(row))
+
+    return row
 
 
 def main():

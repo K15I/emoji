@@ -14,7 +14,7 @@ def main():
     rows = [classify_associations(row) for row in rows]
     output = args.output or args.csv
     write_rows(output, rows, fieldnames)
-    print(f"Classified associations for {len(rows)} emoji into {output}")
+    print(f"Rebuilt search fields for {len(rows)} emoji into {output}")
 
 
 if __name__ == "__main__":

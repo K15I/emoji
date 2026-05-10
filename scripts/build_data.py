@@ -1,15 +1,41 @@
 import argparse
 import csv
 import json
+import re
 from pathlib import Path
+
+from emoji_assoc import is_skin_tone_variant, skin_tone_base_name
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SOURCE = ROOT / "data" / "emoji17.csv"
-JSON_OUT = ROOT / "site" / "data" / "emoji.json"
-JS_OUT = ROOT / "site" / "data" / "emoji-data.js"
+OUTPUT_DIRS = (
+    ROOT / "site" / "data",
+    ROOT / "dev" / "data",
+)
 
-LIST_FIELDS = ("tags_ja", "scenes_ja", "tone_ja")
+V2_FIELDS = (
+    "direct_ja",
+    "visual_ja",
+    "context_ja",
+    "symbolic_ja",
+    "emotion_ja",
+    "action_ja",
+    "culture_ja",
+    "search_ja",
+)
+LIST_FIELDS = V2_FIELDS
+ABSTRACT_GROUP_FIELDS = (
+    "abstract_group_id",
+    "abstract_group_role",
+    "abstract_variant_kind",
+    "abstract_is_source",
+    "abstract_group_key",
+)
+SKIN_TONE_WORD_RE = re.compile(
+    r"\b(?:light|medium-light|medium|medium-dark|dark)\s+skin\s+tone\b",
+    re.I,
+)
 
 
 def split_list(value):
@@ -22,7 +48,44 @@ def clean(value):
     return "" if value is None else str(value).strip()
 
 
+def unique(values):
+    seen = set()
+    result = []
+    for value in values:
+        value = clean(value)
+        if value and value not in seen:
+            seen.add(value)
+            result.append(value)
+    return result
+
+
+def base_match_key(name):
+    name = SKIN_TONE_WORD_RE.sub("", clean(name).lower())
+    name = re.sub(r"[^a-z0-9]+", " ", name)
+    return " ".join(name.split())
+
+
+def skin_tone_count(name):
+    return len(SKIN_TONE_WORD_RE.findall(clean(name)))
+
+
+def is_hidden_variant(row):
+    return skin_tone_count(row.get("name_en", "")) >= 2
+
+
 def normalize_row(row):
+    lists = {field: split_list(row.get(field, "")) for field in LIST_FIELDS}
+    if not lists["search_ja"]:
+        search = []
+        for field in V2_FIELDS:
+            if field != "search_ja":
+                search.extend(lists[field])
+        lists["search_ja"] = unique(search)
+
+    meaning = unique([*lists["direct_ja"], *lists["symbolic_ja"]])
+    usage = unique([*lists["context_ja"], *lists["action_ja"], *lists["culture_ja"]])
+    impression = unique([*lists["visual_ja"], *lists["emotion_ja"]])
+
     item = {
         "id": clean(row.get("id", "")),
         "emoji": clean(row["emoji"]),
@@ -37,9 +100,18 @@ def normalize_row(row):
         "subcategory_ja": clean(row.get("subcategory_ja", "")),
         "unicode_version": clean(row["unicode_version"]),
     }
+    for field in ABSTRACT_GROUP_FIELDS:
+        item[field] = clean(row.get(field, ""))
+    if is_hidden_variant(row):
+        item["hidden_variant"] = True
+        item["variant_kind"] = "multi_skin"
 
     for field in LIST_FIELDS:
-        item[field] = split_list(row.get(field, ""))
+        item[field] = lists[field]
+
+    item["meaning_ja"] = meaning
+    item["usage_ja"] = usage
+    item["impression_ja"] = impression
 
     item["class_ja"] = [
         value
@@ -58,13 +130,66 @@ def normalize_row(row):
         item["category_ja"],
         item["subcategory"],
         item["subcategory_ja"],
-        *item["tags_ja"],
-        *item["scenes_ja"],
-        *item["tone_ja"],
+        *item["meaning_ja"],
+        *item["usage_ja"],
+        *item["impression_ja"],
+        *item["direct_ja"],
+        *item["visual_ja"],
+        *item["context_ja"],
+        *item["symbolic_ja"],
+        *item["emotion_ja"],
+        *item["action_ja"],
+        *item["culture_ja"],
+        *item["search_ja"],
         *item["class_ja"],
     ]
     item["search_text"] = " ".join(searchable).lower()
     return item
+
+
+def copy_base_tags_to_skin_variants(rows):
+    base_by_name = {
+        base_match_key(row.get("name_en", "")): row
+        for row in rows
+        if not is_skin_tone_variant(row)
+    }
+    copied = []
+    for row in rows:
+        row = dict(row)
+        if not is_skin_tone_variant(row):
+            copied.append(row)
+            continue
+
+        base = base_by_name.get(base_match_key(row.get("name_en", ""))) or base_by_name.get(
+            base_match_key(skin_tone_base_name(row))
+        )
+        if not base:
+            copied.append(row)
+            continue
+
+        for field in V2_FIELDS:
+            if not split_list(row.get(field, "")):
+                row[field] = base.get(field, "")
+        copied.append(row)
+    return copied
+
+
+def write_payload(payload, output_dir):
+    json_out = output_dir / "emoji.json"
+    js_out = output_dir / "emoji-data.js"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    json_out.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    js_out.write_text(
+        "window.EMOJI_DATA = "
+        + json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
+        + ";\n",
+        encoding="utf-8",
+    )
+    print(f"Wrote {payload['count']} emoji to {json_out.relative_to(ROOT)}")
+    print(f"Wrote browser data to {js_out.relative_to(ROOT)}")
 
 
 def main():
@@ -76,7 +201,8 @@ def main():
         source = ROOT / source
 
     with source.open("r", encoding="utf-8-sig", newline="") as fp:
-        rows = [normalize_row(row) for row in csv.DictReader(fp)]
+        source_rows = copy_base_tags_to_skin_variants(list(csv.DictReader(fp)))
+        rows = [normalize_row(row) for row in source_rows]
 
     payload = {
         "version": 1,
@@ -85,19 +211,8 @@ def main():
         "items": rows,
     }
 
-    JSON_OUT.parent.mkdir(parents=True, exist_ok=True)
-    JSON_OUT.write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
-    JS_OUT.write_text(
-        "window.EMOJI_DATA = "
-        + json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
-        + ";\n",
-        encoding="utf-8",
-    )
-    print(f"Wrote {payload['count']} emoji to {JSON_OUT.relative_to(ROOT)}")
-    print(f"Wrote browser data to {JS_OUT.relative_to(ROOT)}")
+    for output_dir in OUTPUT_DIRS:
+        write_payload(payload, output_dir)
 
 
 if __name__ == "__main__":

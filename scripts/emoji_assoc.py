@@ -1,9 +1,22 @@
 import csv
+import re
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_CSV = ROOT / "data" / "emoji_enriched.csv"
+DEFAULT_CSV = ROOT / "data" / "emoji17.csv"
+SKIN_TONE_RE = re.compile(r":\s*(light|medium-light|medium|medium-dark|dark)\s+skin\s+tone", re.I)
+
+V2_FIELDS = [
+    "direct_ja",
+    "visual_ja",
+    "context_ja",
+    "symbolic_ja",
+    "emotion_ja",
+    "action_ja",
+    "culture_ja",
+    "search_ja",
+]
 
 BASE_FIELDNAMES = [
     "id",
@@ -16,12 +29,8 @@ BASE_FIELDNAMES = [
     "subcategory",
     "subcategory_ja",
     "unicode_version",
-    "tags_ja",
-    "scenes_ja",
-    "tone_ja",
-    "assoc_ja",
-    "en_flag",
     "importance",
+    *V2_FIELDS,
 ]
 
 SCENE_WORDS = {
@@ -74,6 +83,14 @@ def join_list(values):
     return ";".join(unique(values))
 
 
+def is_skin_tone_variant(row):
+    return bool(SKIN_TONE_RE.search(row.get("name_en", "")))
+
+
+def skin_tone_base_name(row):
+    return SKIN_TONE_RE.sub("", row.get("name_en", "")).strip()
+
+
 def normalized_fieldnames(fieldnames):
     result = list(fieldnames or [])
     for field in BASE_FIELDNAMES:
@@ -98,30 +115,41 @@ def write_rows(path, rows, fieldnames):
     with Path(path).open("w", encoding="utf-8-sig", newline="") as fp:
         writer = csv.DictWriter(fp, fieldnames=fieldnames)
         writer.writeheader()
-        writer.writerows(rows)
+        writer.writerows({field: row.get(field, "") for field in fieldnames} for row in rows)
 
 
 def association_pool(row):
     values = []
-    for field in ("assoc_ja", "tags_ja", "scenes_ja", "tone_ja"):
+    for field in V2_FIELDS:
         values.extend(split_list(row.get(field, "")))
     return unique(values)
 
 
-def classify_associations(row):
-    tags = []
-    scenes = []
-    tones = []
-    for word in association_pool(row):
-        if word in SCENE_WORDS:
-            scenes.append(word)
-        elif word in TONE_WORDS:
-            tones.append(word)
-        elif word not in CLASSIFICATION_TAGS:
-            tags.append(word)
+def search_pool(row):
+    values = split_list(row.get("search_ja", ""))
+    if values:
+        return unique(values)
+    values = []
+    for field in V2_FIELDS:
+        if field != "search_ja":
+            values.extend(split_list(row.get(field, "")))
+    return unique(values)
 
-    row["assoc_ja"] = join_list(association_pool(row))
-    row["tags_ja"] = join_list(tags)
-    row["scenes_ja"] = join_list(scenes)
-    row["tone_ja"] = join_list(tones)
+
+def rebuild_search_terms(row):
+    values = []
+    for field in V2_FIELDS:
+        if field != "search_ja":
+            values.extend(split_list(row.get(field, "")))
+    return unique(values)
+
+
+def derive_compat_fields(row):
+    """Compatibility shim for older callers; only rebuilds the search field now."""
+    if not split_list(row.get("search_ja", "")):
+        row["search_ja"] = join_list(rebuild_search_terms(row))
     return row
+
+
+def classify_associations(row):
+    return derive_compat_fields(row)
