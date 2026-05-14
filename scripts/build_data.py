@@ -112,7 +112,6 @@ def normalize_row(row):
     item["meaning_ja"] = meaning
     item["usage_ja"] = usage
     item["impression_ja"] = impression
-
     item["class_ja"] = [
         value
         for value in (item["category_ja"] or item["category"], item["subcategory_ja"] or item["subcategory"])
@@ -147,6 +146,35 @@ def normalize_row(row):
     return item
 
 
+def source_row_by_group(rows):
+    sources = {}
+    for row in rows:
+        group_id = clean(row.get("abstract_group_id", ""))
+        if not group_id:
+            continue
+        if clean(row.get("abstract_is_source", "")) == "1":
+            sources[group_id] = row
+    return sources
+
+
+def copy_source_tags_to_variants(rows):
+    sources = source_row_by_group(rows)
+    copied = []
+    for row in rows:
+        row = dict(row)
+        group_id = clean(row.get("abstract_group_id", ""))
+        source = sources.get(group_id)
+        if not source or clean(row.get("abstract_is_source", "")) == "1":
+            copied.append(row)
+            continue
+
+        for field in V2_FIELDS:
+            if not split_list(row.get(field, "")):
+                row[field] = source.get(field, "")
+        copied.append(row)
+    return copied
+
+
 def copy_base_tags_to_skin_variants(rows):
     base_by_name = {
         base_match_key(row.get("name_en", "")): row
@@ -172,6 +200,10 @@ def copy_base_tags_to_skin_variants(rows):
                 row[field] = base.get(field, "")
         copied.append(row)
     return copied
+
+
+def copy_representative_tags_to_variants(rows):
+    return copy_base_tags_to_skin_variants(copy_source_tags_to_variants(rows))
 
 
 def write_payload(payload, output_dir):
@@ -201,7 +233,7 @@ def main():
         source = ROOT / source
 
     with source.open("r", encoding="utf-8-sig", newline="") as fp:
-        source_rows = copy_base_tags_to_skin_variants(list(csv.DictReader(fp)))
+        source_rows = copy_representative_tags_to_variants(list(csv.DictReader(fp)))
         rows = [normalize_row(row) for row in source_rows]
 
     payload = {

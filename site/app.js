@@ -125,6 +125,52 @@ function typedTerms(item) {
   };
 }
 
+const COMMON_DISPLAY_STOP_TAGS = new Set(["人"]);
+const OCCUPATION_DISPLAY_STOP_TAGS = new Set([
+  "職業",
+  "制服",
+  "仕事姿",
+  "仕事",
+  "職場",
+  "専門職",
+  "紹介",
+  "専門家",
+  "働く人",
+  "働く",
+  "医師",
+  "診る",
+  "診察",
+]);
+
+function uniqueTerms(values) {
+  const seen = new Set();
+  return values.filter((value) => {
+    if (seen.has(value)) return false;
+    seen.add(value);
+    return true;
+  });
+}
+
+function displayStopTags(item) {
+  const result = new Set(COMMON_DISPLAY_STOP_TAGS);
+  if (classTerms(item).includes("職業の人")) {
+    OCCUPATION_DISPLAY_STOP_TAGS.forEach((value) => result.add(value));
+  }
+  return result;
+}
+
+function displayTerms(item) {
+  const terms = typedTerms(item);
+  const stopTags = displayStopTags(item);
+  const filter = (values) => uniqueTerms(values).filter((value) => !stopTags.has(value));
+  return {
+    meaning: filter(terms.meaning),
+    usage: filter(terms.usage),
+    impression: filter(terms.impression),
+    classes: terms.classes,
+  };
+}
+
 function allTerms(item) {
   const terms = typedTerms(item);
   return [...terms.meaning, ...terms.usage, ...terms.impression, ...terms.classes];
@@ -443,7 +489,7 @@ function renderSelectedInline() {
   }
 
   const group = state.selectedGroup;
-  const terms = typedTerms(group.baseItem);
+  const terms = displayTerms(group.baseItem);
   selectedInline.className = "selected-inline";
   selectedInline.innerHTML = `
     <section class="selected-summary">
@@ -569,3 +615,4 @@ copyButton.addEventListener("click", async () => {
 
 renderQuickTags();
 render();
+
