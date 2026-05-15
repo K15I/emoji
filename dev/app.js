@@ -29,6 +29,7 @@ const exactModeButton = document.querySelector("#exactModeButton");
 const quickTags = document.querySelector("#quickTags");
 const stockWorkbench = document.querySelector("#stockWorkbench");
 const selectedInline = document.querySelector("#selectedInline");
+const stickyWorkbench = document.querySelector(".sticky-workbench");
 const results = document.querySelector("#results");
 const resultCount = document.querySelector("#resultCount");
 const hitTags = document.querySelector("#hitTags");
@@ -125,6 +126,8 @@ function typedTerms(item) {
   };
 }
 
+const DISPLAY_UNIQUE_TRIM_THRESHOLD = 8;
+const DISPLAY_TERM_COUNTS = buildDisplayTermCounts(visibleData);
 const COMMON_DISPLAY_STOP_TAGS = new Set(["人"]);
 const OCCUPATION_DISPLAY_STOP_TAGS = new Set([
   "職業",
@@ -1104,17 +1107,47 @@ function displayTerms(item) {
   const terms = typedTerms(item);
   const stopTags = displayStopTags(item);
   const filter = (values) => uniqueTerms(values).filter((value) => !stopTags.has(value));
-  return {
+  return trimLowSignalUniqueTerms(item, {
     meaning: filter(terms.meaning),
     usage: filter(terms.usage),
     impression: filter(terms.impression),
     classes: terms.classes,
-  };
+  });
 }
 
 function allTerms(item) {
   const terms = typedTerms(item);
   return [...terms.meaning, ...terms.usage, ...terms.impression, ...terms.classes];
+}
+
+function buildDisplayTermCounts(items) {
+  const counts = new Map();
+  for (const item of items) {
+    const terms = typedTerms(item);
+    const values = uniqueTerms([...terms.meaning, ...terms.usage, ...terms.impression]);
+    for (const value of values) {
+      counts.set(value, (counts.get(value) || 0) + 1);
+    }
+  }
+  return counts;
+}
+
+function protectedDisplayTerms(item) {
+  return new Set([item.name_ja, item.name_ja?.replace(/（.+$/, "")].filter(Boolean));
+}
+
+function trimLowSignalUniqueTerms(item, terms) {
+  const displayCount = terms.meaning.length + terms.usage.length + terms.impression.length;
+  if (displayCount < DISPLAY_UNIQUE_TRIM_THRESHOLD) return terms;
+
+  const protectedTerms = protectedDisplayTerms(item);
+  return {
+    ...terms,
+    impression: terms.impression.filter((value) => {
+      if (protectedTerms.has(value)) return true;
+      return (DISPLAY_TERM_COUNTS.get(value) || 0) > 1;
+    }),
+  };
 }
 
 function groupTerms(group) {
@@ -1232,9 +1265,19 @@ function selectGroup(group, options = {}) {
   render();
   if (options.scrollToTop) {
     window.requestAnimationFrame(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      scrollSelectedIntoView();
     });
   }
+}
+
+function scrollSelectedIntoView() {
+  const scrollingElement = document.scrollingElement || document.documentElement;
+  const stickyHeight = stickyWorkbench?.getBoundingClientRect().height || 0;
+  const targetTop = selectedInline.getBoundingClientRect().top + scrollingElement.scrollTop - stickyHeight - 8;
+  scrollingElement.scrollTo({
+    top: Math.max(0, targetTop),
+    behavior: "smooth",
+  });
 }
 
 function addSelectedToStock() {
