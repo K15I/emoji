@@ -862,19 +862,19 @@
 861,👩🏽‍⚕️,1F469 1F3FD 200D 2695 FE0F,woman health worker: medium skin tone,医療従事者,People & Body,人と体,person-role,職業の人,4,1,,,,,,,,,846,variant,skin_gender,0,health worker
 862,👩🏾‍⚕️,1F469 1F3FE 200D 2695 FE0F,woman health worker: medium-dark skin tone,医療従事者,People & Body,人と体,person-role,職業の人,4,1,,,,,,,,,846,variant,skin_gender,0,health worker
 863,👩🏿‍⚕️,1F469 1F3FF 200D 2695 FE0F,woman health worker: dark skin tone,医療従事者,People & Body,人と体,person-role,職業の人,4,1,,,,,,,,,846,variant,skin_gender,0,health worker
-864,🧑‍🎓,1F9D1 200D 1F393,student,学生,People & Body,人と体,person-role,職業の人,12.1,2,人;職業;学生,制服;仕事姿,仕事;職場;専門職;紹介;学校;授業;卒業,専門家;働く人;学び,,働く;学ぶ,,人;職業;学生;制服;仕事姿;仕事;職場;専門職;紹介;学校;授業;卒業;専門家;働く人;学び;働く;学ぶ;受験;進路;友達;友達関係;仲間;青春;放課後;試験;子;入学;未来;発表;就活;面接;卒論;塾;クラスメイト;同級生;先輩;後輩;生徒;新学期;合格発表;親友;先生;成人式,864,source,base,1,student
+864,🧑‍🎓,1F9D1 200D 1F393,student,学生,People & Body,人と体,person-role,職業の人,12.1,2,人;職業;学生,制服;仕事姿,学校;授業;卒業,専門家;働く人;学び,,働く;学ぶ,,人;職業;学生;制服;学校;授業;卒業;学び;学ぶ;受験;進路;友達;友達関係;仲間;青春;放課後;試験;子;入学;未来;発表;就活;面接;卒論;塾;クラスメイト;同級生;先輩;後輩;生徒;新学期;合格発表;親友;先生;成人式,864,source,base,1,student
 865,🧑🏻‍🎓,1F9D1 1F3FB 200D 1F393,student: light skin tone,学生（薄い肌色）,People & Body,人と体,person-role,職業の人,12.1,1,,,,,,,,,864,variant,skin_tone,0,student
 866,🧑🏼‍🎓,1F9D1 1F3FC 200D 1F393,student: medium-light skin tone,学生（やや薄い肌色）,People & Body,人と体,person-role,職業の人,12.1,2,,,,,,,,,864,variant,skin_tone,0,student
 867,🧑🏽‍🎓,1F9D1 1F3FD 200D 1F393,student: medium skin tone,学生（中間の肌色）,People & Body,人と体,person-role,職業の人,12.1,1,,,,,,,,,864,variant,skin_tone,0,student
 868,🧑🏾‍🎓,1F9D1 1F3FE 200D 1F393,student: medium-dark skin tone,学生（やや濃い肌色）,People & Body,人と体,person-role,職業の人,12.1,1,,,,,,,,,864,variant,skin_tone,0,student
 869,🧑🏿‍🎓,1F9D1 1F3FF 200D 1F393,student: dark skin tone,学生（濃い肌色）,People & Body,人と体,person-role,職業の人,12.1,1,,,,,,,,,864,variant,skin_tone,0,student
-870,👨‍🎓,1F468 200D 1F393,man student,男子学生,People & Body,人と体,person-role,職業の人,4,2,人;職業;男子学生;男性;学生,制服;仕事姿;男,仕事;職場;専門職;紹介;学校;授業;卒業,専門家;働く人;学び,,働く;学ぶ,,人;職業;男子学生;男性;学生;制服;仕事姿;男;仕事;職場;専門職;紹介;学校;授業;卒業;専門家;働く人;学び;働く;学ぶ,864,variant,gender,0,student
+870,👨‍🎓,1F468 200D 1F393,man student,男子学生,People & Body,人と体,person-role,職業の人,4,2,人;職業;男子学生;男性;学生,制服;仕事姿;男,学校;授業;卒業,専門家;働く人;学び,,働く;学ぶ,,人;職業;男子学生;男性;学生;制服;男;学校;授業;卒業;学び;学ぶ,864,variant,gender,0,student
 871,👨🏻‍🎓,1F468 1F3FB 200D 1F393,man student: light skin tone,男子学生（薄い肌色）,People & Body,人と体,person-role,職業の人,4,1,,,,,,,,,864,variant,skin_gender,0,student
 872,👨🏼‍🎓,1F468 1F3FC 200D 1F393,man student: medium-light skin tone,男子学生（やや薄い肌色）,People & Body,人と体,person-role,職業の人,4,2,,,,,,,,,864,variant,skin_gender,0,student
 873,👨🏽‍🎓,1F468 1F3FD 200D 1F393,man student: medium skin tone,男子学生（中間の肌色）,People & Body,人と体,person-role,職業の人,4,1,,,,,,,,,864,variant,skin_gender,0,student
 874,👨🏾‍🎓,1F468 1F3FE 200D 1F393,man student: medium-dark skin tone,男子学生（やや濃い肌色）,People & Body,人と体,person-role,職業の人,4,1,,,,,,,,,864,variant,skin_gender,0,student
 875,👨🏿‍🎓,1F468 1F3FF 200D 1F393,man student: dark skin tone,男子学生（濃い肌色）,People & Body,人と体,person-role,職業の人,4,1,,,,,,,,,864,variant,skin_gender,0,student
-876,👩‍🎓,1F469 200D 1F393,woman student,女子学生,People & Body,人と体,person-role,職業の人,4,2,人;職業;女子学生;女性;学生,制服;仕事姿;女,仕事;職場;専門職;紹介;学校;授業;卒業,専門家;働く人;学び,,働く;学ぶ,,人;職業;女子学生;女性;学生;制服;仕事姿;女;仕事;職場;専門職;紹介;学校;授業;卒業;専門家;働く人;学び;働く;学ぶ,864,variant,gender,0,student
+876,👩‍🎓,1F469 200D 1F393,woman student,女子学生,People & Body,人と体,person-role,職業の人,4,2,人;職業;女子学生;女性;学生,制服;仕事姿;女,学校;授業;卒業,専門家;働く人;学び,,働く;学ぶ,,人;職業;女子学生;女性;学生;制服;女;学校;授業;卒業;学び;学ぶ,864,variant,gender,0,student
 877,👩🏻‍🎓,1F469 1F3FB 200D 1F393,woman student: light skin tone,女子学生（薄い肌色）,People & Body,人と体,person-role,職業の人,4,1,,,,,,,,,864,variant,skin_gender,0,student
 878,👩🏼‍🎓,1F469 1F3FC 200D 1F393,woman student: medium-light skin tone,女子学生（やや薄い肌色）,People & Body,人と体,person-role,職業の人,4,2,,,,,,,,,864,variant,skin_gender,0,student
 879,👩🏽‍🎓,1F469 1F3FD 200D 1F393,woman student: medium skin tone,女子学生（中間の肌色）,People & Body,人と体,person-role,職業の人,4,1,,,,,,,,,864,variant,skin_gender,0,student
@@ -1210,85 +1210,85 @@
 1209,👷🏽‍♀️,1F477 1F3FD 200D 2640 FE0F,woman construction worker: medium skin tone,建設作業員,People & Body,人と体,person-role,職業の人,4,1,,,,,,,,,1194,variant,skin_gender,0,construction worker
 1210,👷🏾‍♀️,1F477 1F3FE 200D 2640 FE0F,woman construction worker: medium-dark skin tone,建設作業員,People & Body,人と体,person-role,職業の人,4,1,,,,,,,,,1194,variant,skin_gender,0,construction worker
 1211,👷🏿‍♀️,1F477 1F3FF 200D 2640 FE0F,woman construction worker: dark skin tone,建設作業員,People & Body,人と体,person-role,職業の人,4,1,,,,,,,,,1194,variant,skin_gender,0,construction worker
-1212,🫅,1FAC5,person with crown,王冠をかぶった人,People & Body,人と体,person-role,職業の人,14,2,人;職業;王冠をかぶった人;王冠の人,制服;仕事姿,仕事;職場;専門職;紹介;王様;女王,専門家;働く人;王族,,働く;統治する,,人;職業;王冠をかぶった人;王冠の人;制服;仕事姿;仕事;職場;専門職;紹介;王様;女王;専門家;働く人;王族;働く;統治する,1212,source,gender,1,with crown
+1212,🫅,1FAC5,person with crown,王冠をかぶった人,People & Body,人と体,person-role,職業の人,14,2,人;職業;王冠をかぶった人;王冠の人,制服;仕事姿,王様;女王,専門家;働く人;王族,,働く;統治する,,人;職業;王冠をかぶった人;王冠の人;制服;王様;女王;王族;統治する,1212,source,gender,1,with crown
 1213,🫅🏻,1FAC5 1F3FB,person with crown: light skin tone,王冠をかぶった人（薄い肌色）,People & Body,人と体,person-role,職業の人,14,1,,,,,,,,,1212,variant,skin_gender,0,with crown
 1214,🫅🏼,1FAC5 1F3FC,person with crown: medium-light skin tone,王冠をかぶった人（やや薄い肌色）,People & Body,人と体,person-role,職業の人,14,2,,,,,,,,,1212,variant,skin_gender,0,with crown
 1215,🫅🏽,1FAC5 1F3FD,person with crown: medium skin tone,王冠をかぶった人（中間の肌色）,People & Body,人と体,person-role,職業の人,14,1,,,,,,,,,1212,variant,skin_gender,0,with crown
 1216,🫅🏾,1FAC5 1F3FE,person with crown: medium-dark skin tone,王冠をかぶった人（やや濃い肌色）,People & Body,人と体,person-role,職業の人,14,1,,,,,,,,,1212,variant,skin_gender,0,with crown
 1217,🫅🏿,1FAC5 1F3FF,person with crown: dark skin tone,王冠をかぶった人（濃い肌色）,People & Body,人と体,person-role,職業の人,14,1,,,,,,,,,1212,variant,skin_gender,0,with crown
-1218,🤴,1F934,prince,プリンス,People & Body,人と体,person-role,職業の人,3,2,人;職業;プリンス;王子,制服;仕事姿,仕事;職場;専門職;紹介;王族;物語,専門家;働く人;高貴,,働く;導く,,人;職業;プリンス;王子;制服;仕事姿;仕事;職場;専門職;紹介;王族;物語;専門家;働く人;高貴;働く;導く,1218,source,base,1,prince
+1218,🤴,1F934,prince,プリンス,People & Body,人と体,person-role,職業の人,3,2,人;職業;プリンス;王子,制服;仕事姿,王族;物語,専門家;働く人;高貴,,働く;導く,,人;職業;プリンス;王子;制服;王族;物語;高貴;導く,1218,source,base,1,prince
 1219,🤴🏻,1F934 1F3FB,prince: light skin tone,プリンス（薄い肌色）,People & Body,人と体,person-role,職業の人,3,1,,,,,,,,,1218,variant,skin_tone,0,prince
 1220,🤴🏼,1F934 1F3FC,prince: medium-light skin tone,プリンス（やや薄い肌色）,People & Body,人と体,person-role,職業の人,3,2,,,,,,,,,1218,variant,skin_tone,0,prince
 1221,🤴🏽,1F934 1F3FD,prince: medium skin tone,プリンス（中間の肌色）,People & Body,人と体,person-role,職業の人,3,1,,,,,,,,,1218,variant,skin_tone,0,prince
 1222,🤴🏾,1F934 1F3FE,prince: medium-dark skin tone,プリンス（やや濃い肌色）,People & Body,人と体,person-role,職業の人,3,1,,,,,,,,,1218,variant,skin_tone,0,prince
 1223,🤴🏿,1F934 1F3FF,prince: dark skin tone,プリンス（濃い肌色）,People & Body,人と体,person-role,職業の人,3,1,,,,,,,,,1218,variant,skin_tone,0,prince
-1224,👸,1F478,princess,プリンセス,People & Body,人と体,person-role,職業の人,0.6,2,人;職業;プリンセス;王子;姫,制服;仕事姿,仕事;職場;専門職;紹介;王族;物語,専門家;働く人;高貴,,働く;導く;微笑む,,人;職業;プリンセス;王子;姫;制服;仕事姿;仕事;職場;専門職;紹介;王族;物語;専門家;働く人;高貴;働く;導く;微笑む,1224,source,base,1,princess
+1224,👸,1F478,princess,プリンセス,People & Body,人と体,person-role,職業の人,0.6,2,人;職業;プリンセス;王子;姫,制服;仕事姿,王族;物語,専門家;働く人;高貴,,働く;導く;微笑む,,人;職業;プリンセス;王子;姫;制服;王族;物語;高貴;導く;微笑む,1224,source,base,1,princess
 1225,👸🏻,1F478 1F3FB,princess: light skin tone,プリンセス（薄い肌色）,People & Body,人と体,person-role,職業の人,1,1,,,,,,,,,1224,variant,skin_tone,0,princess
 1226,👸🏼,1F478 1F3FC,princess: medium-light skin tone,プリンセス（やや薄い肌色）,People & Body,人と体,person-role,職業の人,1,2,,,,,,,,,1224,variant,skin_tone,0,princess
 1227,👸🏽,1F478 1F3FD,princess: medium skin tone,プリンセス（中間の肌色）,People & Body,人と体,person-role,職業の人,1,1,,,,,,,,,1224,variant,skin_tone,0,princess
 1228,👸🏾,1F478 1F3FE,princess: medium-dark skin tone,プリンセス（やや濃い肌色）,People & Body,人と体,person-role,職業の人,1,1,,,,,,,,,1224,variant,skin_tone,0,princess
 1229,👸🏿,1F478 1F3FF,princess: dark skin tone,プリンセス（濃い肌色）,People & Body,人と体,person-role,職業の人,1,1,,,,,,,,,1224,variant,skin_tone,0,princess
-1230,👳,1F473,person wearing turban,ターバンの人,People & Body,人と体,person-role,職業の人,0.6,2,人;職業;ターバンの人,制服;仕事姿,仕事;職場;専門職;紹介;服装;文化,専門家;働く人;伝統,,働く;装う,,人;職業;ターバンの人;制服;仕事姿;仕事;職場;専門職;紹介;服装;文化;専門家;働く人;伝統;働く;装う,1230,source,gender,1,wearing turban
+1230,👳,1F473,person wearing turban,ターバンの人,People & Body,人と体,person-role,職業の人,0.6,2,人;職業;ターバンの人,制服;仕事姿,服装;文化,専門家;働く人;伝統,,働く;装う,,人;職業;ターバンの人;制服;服装;文化;伝統;装う,1230,source,gender,1,wearing turban
 1231,👳🏻,1F473 1F3FB,person wearing turban: light skin tone,ターバンの人（薄い肌色）,People & Body,人と体,person-role,職業の人,1,1,,,,,,,,,1230,variant,skin_gender,0,wearing turban
 1232,👳🏼,1F473 1F3FC,person wearing turban: medium-light skin tone,ターバンの人（やや薄い肌色）,People & Body,人と体,person-role,職業の人,1,2,,,,,,,,,1230,variant,skin_gender,0,wearing turban
 1233,👳🏽,1F473 1F3FD,person wearing turban: medium skin tone,ターバンの人（中間の肌色）,People & Body,人と体,person-role,職業の人,1,1,,,,,,,,,1230,variant,skin_gender,0,wearing turban
 1234,👳🏾,1F473 1F3FE,person wearing turban: medium-dark skin tone,ターバンの人（やや濃い肌色）,People & Body,人と体,person-role,職業の人,1,1,,,,,,,,,1230,variant,skin_gender,0,wearing turban
 1235,👳🏿,1F473 1F3FF,person wearing turban: dark skin tone,ターバンの人（濃い肌色）,People & Body,人と体,person-role,職業の人,1,1,,,,,,,,,1230,variant,skin_gender,0,wearing turban
-1236,👳‍♂️,1F473 200D 2642 FE0F,man wearing turban,ターバンの人,People & Body,人と体,person-role,職業の人,4,2,人;職業;ターバンの人;男性,制服;仕事姿;男,仕事;職場;専門職;紹介,専門家;働く人,,働く,,人;職業;ターバンの人;男性;制服;仕事姿;男;仕事;職場;専門職;紹介;専門家;働く人;働く,1230,variant,gender,0,wearing turban
+1236,👳‍♂️,1F473 200D 2642 FE0F,man wearing turban,ターバンの人,People & Body,人と体,person-role,職業の人,4,2,人;職業;ターバンの人;男性,制服;仕事姿;男,,専門家;働く人,,働く,,人;職業;ターバンの人;男性;制服;男,1230,variant,gender,0,wearing turban
 1237,👳🏻‍♂️,1F473 1F3FB 200D 2642 FE0F,man wearing turban: light skin tone,ターバンの人,People & Body,人と体,person-role,職業の人,4,1,,,,,,,,,1230,variant,skin_gender,0,wearing turban
 1238,👳🏼‍♂️,1F473 1F3FC 200D 2642 FE0F,man wearing turban: medium-light skin tone,ターバンの人,People & Body,人と体,person-role,職業の人,4,2,,,,,,,,,1230,variant,skin_gender,0,wearing turban
 1239,👳🏽‍♂️,1F473 1F3FD 200D 2642 FE0F,man wearing turban: medium skin tone,ターバンの人,People & Body,人と体,person-role,職業の人,4,1,,,,,,,,,1230,variant,skin_gender,0,wearing turban
 1240,👳🏾‍♂️,1F473 1F3FE 200D 2642 FE0F,man wearing turban: medium-dark skin tone,ターバンの人,People & Body,人と体,person-role,職業の人,4,1,,,,,,,,,1230,variant,skin_gender,0,wearing turban
 1241,👳🏿‍♂️,1F473 1F3FF 200D 2642 FE0F,man wearing turban: dark skin tone,ターバンの人,People & Body,人と体,person-role,職業の人,4,1,,,,,,,,,1230,variant,skin_gender,0,wearing turban
-1242,👳‍♀️,1F473 200D 2640 FE0F,woman wearing turban,ターバンの人,People & Body,人と体,person-role,職業の人,4,2,人;職業;ターバンの人;女性,制服;仕事姿;女,仕事;職場;専門職;紹介,専門家;働く人,,働く,,人;職業;ターバンの人;女性;制服;仕事姿;女;仕事;職場;専門職;紹介;専門家;働く人;働く,1230,variant,gender,0,wearing turban
+1242,👳‍♀️,1F473 200D 2640 FE0F,woman wearing turban,ターバンの人,People & Body,人と体,person-role,職業の人,4,2,人;職業;ターバンの人;女性,制服;仕事姿;女,,専門家;働く人,,働く,,人;職業;ターバンの人;女性;制服;女,1230,variant,gender,0,wearing turban
 1243,👳🏻‍♀️,1F473 1F3FB 200D 2640 FE0F,woman wearing turban: light skin tone,ターバンの人,People & Body,人と体,person-role,職業の人,4,1,,,,,,,,,1230,variant,skin_gender,0,wearing turban
 1244,👳🏼‍♀️,1F473 1F3FC 200D 2640 FE0F,woman wearing turban: medium-light skin tone,ターバンの人,People & Body,人と体,person-role,職業の人,4,2,,,,,,,,,1230,variant,skin_gender,0,wearing turban
 1245,👳🏽‍♀️,1F473 1F3FD 200D 2640 FE0F,woman wearing turban: medium skin tone,ターバンの人,People & Body,人と体,person-role,職業の人,4,1,,,,,,,,,1230,variant,skin_gender,0,wearing turban
 1246,👳🏾‍♀️,1F473 1F3FE 200D 2640 FE0F,woman wearing turban: medium-dark skin tone,ターバンの人,People & Body,人と体,person-role,職業の人,4,1,,,,,,,,,1230,variant,skin_gender,0,wearing turban
 1247,👳🏿‍♀️,1F473 1F3FF 200D 2640 FE0F,woman wearing turban: dark skin tone,ターバンの人,People & Body,人と体,person-role,職業の人,4,1,,,,,,,,,1230,variant,skin_gender,0,wearing turban
-1248,👲,1F472,person with skullcap,中華帽の男性,People & Body,人と体,person-role,職業の人,0.6,2,人;職業;中華帽の男性;帽子の人,制服;仕事姿,仕事;職場;専門職;紹介;服装;文化,専門家;働く人;伝統,,働く;装う,,人;職業;中華帽の男性;帽子の人;制服;仕事姿;仕事;職場;専門職;紹介;服装;文化;専門家;働く人;伝統;働く;装う,1248,source,gender,1,with skullcap
+1248,👲,1F472,person with skullcap,中華帽の男性,People & Body,人と体,person-role,職業の人,0.6,2,人;職業;中華帽の男性;帽子の人,制服;仕事姿,服装;文化,専門家;働く人;伝統,,働く;装う,,人;職業;中華帽の男性;帽子の人;制服;服装;文化;伝統;装う,1248,source,gender,1,with skullcap
 1249,👲🏻,1F472 1F3FB,person with skullcap: light skin tone,中華帽の男性（薄い肌色）,People & Body,人と体,person-role,職業の人,1,1,,,,,,,,,1248,variant,skin_gender,0,with skullcap
 1250,👲🏼,1F472 1F3FC,person with skullcap: medium-light skin tone,中華帽の男性（やや薄い肌色）,People & Body,人と体,person-role,職業の人,1,2,,,,,,,,,1248,variant,skin_gender,0,with skullcap
 1251,👲🏽,1F472 1F3FD,person with skullcap: medium skin tone,中華帽の男性（中間の肌色）,People & Body,人と体,person-role,職業の人,1,1,,,,,,,,,1248,variant,skin_gender,0,with skullcap
 1252,👲🏾,1F472 1F3FE,person with skullcap: medium-dark skin tone,中華帽の男性（やや濃い肌色）,People & Body,人と体,person-role,職業の人,1,1,,,,,,,,,1248,variant,skin_gender,0,with skullcap
 1253,👲🏿,1F472 1F3FF,person with skullcap: dark skin tone,中華帽の男性（濃い肌色）,People & Body,人と体,person-role,職業の人,1,1,,,,,,,,,1248,variant,skin_gender,0,with skullcap
-1254,🧕,1F9D5,woman with headscarf,スカーフの女性,People & Body,人と体,person-role,職業の人,5,2,人;職業;スカーフの女性;女性,制服;仕事姿;女,仕事;職場;専門職;紹介,専門家;働く人,,働く,,人;職業;スカーフの女性;女性;制服;仕事姿;女;仕事;職場;専門職;紹介;専門家;働く人;働く,1254,source,gender,1,with headscarf
+1254,🧕,1F9D5,woman with headscarf,スカーフの女性,People & Body,人と体,person-role,職業の人,5,2,人;職業;スカーフの女性;女性,制服;仕事姿;女,,専門家;働く人,,働く,,人;職業;スカーフの女性;女性;制服;女,1254,source,gender,1,with headscarf
 1255,🧕🏻,1F9D5 1F3FB,woman with headscarf: light skin tone,スカーフの女性（薄い肌色）,People & Body,人と体,person-role,職業の人,5,1,,,,,,,,,1254,variant,skin_gender,0,with headscarf
 1256,🧕🏼,1F9D5 1F3FC,woman with headscarf: medium-light skin tone,スカーフの女性（やや薄い肌色）,People & Body,人と体,person-role,職業の人,5,2,,,,,,,,,1254,variant,skin_gender,0,with headscarf
 1257,🧕🏽,1F9D5 1F3FD,woman with headscarf: medium skin tone,スカーフの女性（中間の肌色）,People & Body,人と体,person-role,職業の人,5,1,,,,,,,,,1254,variant,skin_gender,0,with headscarf
 1258,🧕🏾,1F9D5 1F3FE,woman with headscarf: medium-dark skin tone,スカーフの女性（やや濃い肌色）,People & Body,人と体,person-role,職業の人,5,1,,,,,,,,,1254,variant,skin_gender,0,with headscarf
 1259,🧕🏿,1F9D5 1F3FF,woman with headscarf: dark skin tone,スカーフの女性（濃い肌色）,People & Body,人と体,person-role,職業の人,5,1,,,,,,,,,1254,variant,skin_gender,0,with headscarf
-1260,🤵,1F935,person in tuxedo,タキシードの人,People & Body,人と体,person-role,職業の人,3,2,人;職業;タキシードの人,制服;仕事姿,仕事;職場;専門職;紹介;結婚式;式典,専門家;働く人;正装,,働く;着飾る,,人;職業;タキシードの人;制服;仕事姿;仕事;職場;専門職;紹介;結婚式;式典;専門家;働く人;正装;働く;着飾る,1260,source,gender,1,in tuxedo
+1260,🤵,1F935,person in tuxedo,タキシードの人,People & Body,人と体,person-role,職業の人,3,2,人;職業;タキシードの人,制服;仕事姿,結婚式;式典,専門家;働く人;正装,,働く;着飾る,,人;職業;タキシードの人;制服;結婚式;式典;正装;着飾る,1260,source,gender,1,in tuxedo
 1261,🤵🏻,1F935 1F3FB,person in tuxedo: light skin tone,タキシードの人（薄い肌色）,People & Body,人と体,person-role,職業の人,3,1,,,,,,,,,1260,variant,skin_gender,0,in tuxedo
 1262,🤵🏼,1F935 1F3FC,person in tuxedo: medium-light skin tone,タキシードの人（やや薄い肌色）,People & Body,人と体,person-role,職業の人,3,2,,,,,,,,,1260,variant,skin_gender,0,in tuxedo
 1263,🤵🏽,1F935 1F3FD,person in tuxedo: medium skin tone,タキシードの人（中間の肌色）,People & Body,人と体,person-role,職業の人,3,1,,,,,,,,,1260,variant,skin_gender,0,in tuxedo
 1264,🤵🏾,1F935 1F3FE,person in tuxedo: medium-dark skin tone,タキシードの人（やや濃い肌色）,People & Body,人と体,person-role,職業の人,3,1,,,,,,,,,1260,variant,skin_gender,0,in tuxedo
 1265,🤵🏿,1F935 1F3FF,person in tuxedo: dark skin tone,タキシードの人（濃い肌色）,People & Body,人と体,person-role,職業の人,3,1,,,,,,,,,1260,variant,skin_gender,0,in tuxedo
-1266,🤵‍♂️,1F935 200D 2642 FE0F,man in tuxedo,タキシードの人,People & Body,人と体,person-role,職業の人,13,2,人;職業;タキシードの人;男性,制服;仕事姿;男,仕事;職場;専門職;紹介,専門家;働く人,,働く,,人;職業;タキシードの人;男性;制服;仕事姿;男;仕事;職場;専門職;紹介;専門家;働く人;働く,1260,variant,gender,0,in tuxedo
+1266,🤵‍♂️,1F935 200D 2642 FE0F,man in tuxedo,タキシードの人,People & Body,人と体,person-role,職業の人,13,2,人;職業;タキシードの人;男性,制服;仕事姿;男,,専門家;働く人,,働く,,人;職業;タキシードの人;男性;制服;男,1260,variant,gender,0,in tuxedo
 1267,🤵🏻‍♂️,1F935 1F3FB 200D 2642 FE0F,man in tuxedo: light skin tone,タキシードの人,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1260,variant,skin_gender,0,in tuxedo
 1268,🤵🏼‍♂️,1F935 1F3FC 200D 2642 FE0F,man in tuxedo: medium-light skin tone,タキシードの人,People & Body,人と体,person-role,職業の人,13,2,,,,,,,,,1260,variant,skin_gender,0,in tuxedo
 1269,🤵🏽‍♂️,1F935 1F3FD 200D 2642 FE0F,man in tuxedo: medium skin tone,タキシードの人,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1260,variant,skin_gender,0,in tuxedo
 1270,🤵🏾‍♂️,1F935 1F3FE 200D 2642 FE0F,man in tuxedo: medium-dark skin tone,タキシードの人,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1260,variant,skin_gender,0,in tuxedo
 1271,🤵🏿‍♂️,1F935 1F3FF 200D 2642 FE0F,man in tuxedo: dark skin tone,タキシードの人,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1260,variant,skin_gender,0,in tuxedo
-1272,🤵‍♀️,1F935 200D 2640 FE0F,woman in tuxedo,タキシードの人,People & Body,人と体,person-role,職業の人,13,2,人;職業;タキシードの人;女性,制服;仕事姿;女,仕事;職場;専門職;紹介,専門家;働く人,,働く,,人;職業;タキシードの人;女性;制服;仕事姿;女;仕事;職場;専門職;紹介;専門家;働く人;働く,1260,variant,gender,0,in tuxedo
+1272,🤵‍♀️,1F935 200D 2640 FE0F,woman in tuxedo,タキシードの人,People & Body,人と体,person-role,職業の人,13,2,人;職業;タキシードの人;女性,制服;仕事姿;女,,専門家;働く人,,働く,,人;職業;タキシードの人;女性;制服;女,1260,variant,gender,0,in tuxedo
 1273,🤵🏻‍♀️,1F935 1F3FB 200D 2640 FE0F,woman in tuxedo: light skin tone,タキシードの人,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1260,variant,skin_gender,0,in tuxedo
 1274,🤵🏼‍♀️,1F935 1F3FC 200D 2640 FE0F,woman in tuxedo: medium-light skin tone,タキシードの人,People & Body,人と体,person-role,職業の人,13,2,,,,,,,,,1260,variant,skin_gender,0,in tuxedo
 1275,🤵🏽‍♀️,1F935 1F3FD 200D 2640 FE0F,woman in tuxedo: medium skin tone,タキシードの人,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1260,variant,skin_gender,0,in tuxedo
 1276,🤵🏾‍♀️,1F935 1F3FE 200D 2640 FE0F,woman in tuxedo: medium-dark skin tone,タキシードの人,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1260,variant,skin_gender,0,in tuxedo
 1277,🤵🏿‍♀️,1F935 1F3FF 200D 2640 FE0F,woman in tuxedo: dark skin tone,タキシードの人,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1260,variant,skin_gender,0,in tuxedo
-1278,👰,1F470,person with veil,ベールの人,People & Body,人と体,person-role,職業の人,0.6,2,人;職業;ベールの人,制服;仕事姿,仕事;職場;専門職;紹介;結婚式;花嫁,専門家;働く人;正装,,働く;着飾る,,人;職業;ベールの人;制服;仕事姿;仕事;職場;専門職;紹介;結婚式;花嫁;専門家;働く人;正装;働く;着飾る;結婚,1278,source,gender,1,with veil
+1278,👰,1F470,person with veil,ベールの人,People & Body,人と体,person-role,職業の人,0.6,2,人;職業;ベールの人,制服;仕事姿,結婚式;花嫁,専門家;働く人;正装,,働く;着飾る,,人;職業;ベールの人;制服;結婚式;花嫁;正装;着飾る;結婚,1278,source,gender,1,with veil
 1279,👰🏻,1F470 1F3FB,person with veil: light skin tone,ベールの人（薄い肌色）,People & Body,人と体,person-role,職業の人,1,1,,,,,,,,,1278,variant,skin_gender,0,with veil
 1280,👰🏼,1F470 1F3FC,person with veil: medium-light skin tone,ベールの人（やや薄い肌色）,People & Body,人と体,person-role,職業の人,1,2,,,,,,,,,1278,variant,skin_gender,0,with veil
 1281,👰🏽,1F470 1F3FD,person with veil: medium skin tone,ベールの人（中間の肌色）,People & Body,人と体,person-role,職業の人,1,1,,,,,,,,,1278,variant,skin_gender,0,with veil
 1282,👰🏾,1F470 1F3FE,person with veil: medium-dark skin tone,ベールの人（やや濃い肌色）,People & Body,人と体,person-role,職業の人,1,1,,,,,,,,,1278,variant,skin_gender,0,with veil
 1283,👰🏿,1F470 1F3FF,person with veil: dark skin tone,ベールの人（濃い肌色）,People & Body,人と体,person-role,職業の人,1,1,,,,,,,,,1278,variant,skin_gender,0,with veil
-1284,👰‍♂️,1F470 200D 2642 FE0F,man with veil,ベールの人,People & Body,人と体,person-role,職業の人,13,2,人;職業;ベールの人;男性,制服;仕事姿;男,仕事;職場;専門職;紹介,専門家;働く人,,働く,,人;職業;ベールの人;男性;制服;仕事姿;男;仕事;職場;専門職;紹介;専門家;働く人;働く,1278,variant,gender,0,with veil
+1284,👰‍♂️,1F470 200D 2642 FE0F,man with veil,ベールの人,People & Body,人と体,person-role,職業の人,13,2,人;職業;ベールの人;男性,制服;仕事姿;男,,専門家;働く人,,働く,,人;職業;ベールの人;男性;制服;男,1278,variant,gender,0,with veil
 1285,👰🏻‍♂️,1F470 1F3FB 200D 2642 FE0F,man with veil: light skin tone,ベールの人,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1278,variant,skin_gender,0,with veil
 1286,👰🏼‍♂️,1F470 1F3FC 200D 2642 FE0F,man with veil: medium-light skin tone,ベールの人,People & Body,人と体,person-role,職業の人,13,2,,,,,,,,,1278,variant,skin_gender,0,with veil
 1287,👰🏽‍♂️,1F470 1F3FD 200D 2642 FE0F,man with veil: medium skin tone,ベールの人,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1278,variant,skin_gender,0,with veil
 1288,👰🏾‍♂️,1F470 1F3FE 200D 2642 FE0F,man with veil: medium-dark skin tone,ベールの人,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1278,variant,skin_gender,0,with veil
 1289,👰🏿‍♂️,1F470 1F3FF 200D 2642 FE0F,man with veil: dark skin tone,ベールの人,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1278,variant,skin_gender,0,with veil
-1290,👰‍♀️,1F470 200D 2640 FE0F,woman with veil,ベールの人,People & Body,人と体,person-role,職業の人,13,2,人;職業;ベールの人;女性,制服;仕事姿;女,仕事;職場;専門職;紹介,専門家;働く人,,働く,,人;職業;ベールの人;女性;制服;仕事姿;女;仕事;職場;専門職;紹介;専門家;働く人;働く,1278,variant,gender,0,with veil
+1290,👰‍♀️,1F470 200D 2640 FE0F,woman with veil,ベールの人,People & Body,人と体,person-role,職業の人,13,2,人;職業;ベールの人;女性,制服;仕事姿;女,,専門家;働く人,,働く,,人;職業;ベールの人;女性;制服;女,1278,variant,gender,0,with veil
 1291,👰🏻‍♀️,1F470 1F3FB 200D 2640 FE0F,woman with veil: light skin tone,ベールの人,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1278,variant,skin_gender,0,with veil
 1292,👰🏼‍♀️,1F470 1F3FC 200D 2640 FE0F,woman with veil: medium-light skin tone,ベールの人,People & Body,人と体,person-role,職業の人,13,2,,,,,,,,,1278,variant,skin_gender,0,with veil
 1293,👰🏽‍♀️,1F470 1F3FD 200D 2640 FE0F,woman with veil: medium skin tone,ベールの人,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1278,variant,skin_gender,0,with veil
@@ -1318,19 +1318,19 @@
 1317,🤱🏽,1F931 1F3FD,breast-feeding: medium skin tone,授乳（中間の肌色）,People & Body,人と体,person-role,職業の人,5,1,,,,,,,,,1314,variant,skin_tone,0,breast-feeding
 1318,🤱🏾,1F931 1F3FE,breast-feeding: medium-dark skin tone,授乳（やや濃い肌色）,People & Body,人と体,person-role,職業の人,5,1,,,,,,,,,1314,variant,skin_tone,0,breast-feeding
 1319,🤱🏿,1F931 1F3FF,breast-feeding: dark skin tone,授乳（濃い肌色）,People & Body,人と体,person-role,職業の人,5,1,,,,,,,,,1314,variant,skin_tone,0,breast-feeding
-1320,👩‍🍼,1F469 200D 1F37C,woman feeding baby,授乳する女性,People & Body,人と体,person-role,職業の人,13,2,人;職業;授乳する女性;女性;赤ちゃん;赤ん坊,制服;仕事姿;女,仕事;職場;専門職;紹介;育児;出産,専門家;働く人,かわいい,働く,,人;職業;授乳する女性;女性;赤ちゃん;赤ん坊;制服;仕事姿;女;仕事;職場;専門職;紹介;育児;出産;専門家;働く人;かわいい;働く,1320,source,gender,1,feeding baby
+1320,👩‍🍼,1F469 200D 1F37C,woman feeding baby,授乳する女性,People & Body,人と体,person-role,職業の人,13,2,人;職業;授乳する女性;女性;赤ちゃん;赤ん坊,制服;仕事姿;女,育児;出産,専門家;働く人,かわいい,働く,,人;職業;授乳する女性;女性;赤ちゃん;赤ん坊;制服;女;育児;出産;かわいい,1320,source,gender,1,feeding baby
 1321,👩🏻‍🍼,1F469 1F3FB 200D 1F37C,woman feeding baby: light skin tone,授乳する女性（薄い肌色）,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1320,variant,skin_gender,0,feeding baby
 1322,👩🏼‍🍼,1F469 1F3FC 200D 1F37C,woman feeding baby: medium-light skin tone,授乳する女性（やや薄い肌色）,People & Body,人と体,person-role,職業の人,13,2,,,,,,,,,1320,variant,skin_gender,0,feeding baby
 1323,👩🏽‍🍼,1F469 1F3FD 200D 1F37C,woman feeding baby: medium skin tone,授乳する女性（中間の肌色）,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1320,variant,skin_gender,0,feeding baby
 1324,👩🏾‍🍼,1F469 1F3FE 200D 1F37C,woman feeding baby: medium-dark skin tone,授乳する女性（やや濃い肌色）,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1320,variant,skin_gender,0,feeding baby
 1325,👩🏿‍🍼,1F469 1F3FF 200D 1F37C,woman feeding baby: dark skin tone,授乳する女性（濃い肌色）,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1320,variant,skin_gender,0,feeding baby
-1326,👨‍🍼,1F468 200D 1F37C,man feeding baby,授乳する男性,People & Body,人と体,person-role,職業の人,13,2,人;職業;授乳する男性;男性;赤ちゃん;赤ん坊,制服;仕事姿;男,仕事;職場;専門職;紹介;育児;出産,専門家;働く人,かわいい,働く,,人;職業;授乳する男性;男性;赤ちゃん;赤ん坊;制服;仕事姿;男;仕事;職場;専門職;紹介;育児;出産;専門家;働く人;かわいい;働く,1320,variant,gender,0,feeding baby
+1326,👨‍🍼,1F468 200D 1F37C,man feeding baby,授乳する男性,People & Body,人と体,person-role,職業の人,13,2,人;職業;授乳する男性;男性;赤ちゃん;赤ん坊,制服;仕事姿;男,育児;出産,専門家;働く人,かわいい,働く,,人;職業;授乳する男性;男性;赤ちゃん;赤ん坊;制服;男;育児;出産;かわいい,1320,variant,gender,0,feeding baby
 1327,👨🏻‍🍼,1F468 1F3FB 200D 1F37C,man feeding baby: light skin tone,授乳する男性（薄い肌色）,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1320,variant,skin_gender,0,feeding baby
 1328,👨🏼‍🍼,1F468 1F3FC 200D 1F37C,man feeding baby: medium-light skin tone,授乳する男性（やや薄い肌色）,People & Body,人と体,person-role,職業の人,13,2,,,,,,,,,1320,variant,skin_gender,0,feeding baby
 1329,👨🏽‍🍼,1F468 1F3FD 200D 1F37C,man feeding baby: medium skin tone,授乳する男性（中間の肌色）,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1320,variant,skin_gender,0,feeding baby
 1330,👨🏾‍🍼,1F468 1F3FE 200D 1F37C,man feeding baby: medium-dark skin tone,授乳する男性（やや濃い肌色）,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1320,variant,skin_gender,0,feeding baby
 1331,👨🏿‍🍼,1F468 1F3FF 200D 1F37C,man feeding baby: dark skin tone,授乳する男性（濃い肌色）,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1320,variant,skin_gender,0,feeding baby
-1332,🧑‍🍼,1F9D1 200D 1F37C,person feeding baby,授乳する人,People & Body,人と体,person-role,職業の人,13,2,人;職業;授乳する人;赤ちゃん;赤ん坊,制服;仕事姿,仕事;職場;専門職;紹介;育児;出産,専門家;働く人,かわいい,働く,,人;職業;授乳する人;赤ちゃん;赤ん坊;制服;仕事姿;仕事;職場;専門職;紹介;育児;出産;専門家;働く人;かわいい;働く,1320,variant,gender,0,feeding baby
+1332,🧑‍🍼,1F9D1 200D 1F37C,person feeding baby,授乳する人,People & Body,人と体,person-role,職業の人,13,2,人;職業;授乳する人;赤ちゃん;赤ん坊,制服;仕事姿,育児;出産,専門家;働く人,かわいい,働く,,人;職業;授乳する人;赤ちゃん;赤ん坊;制服;育児;出産;かわいい,1320,variant,gender,0,feeding baby
 1333,🧑🏻‍🍼,1F9D1 1F3FB 200D 1F37C,person feeding baby: light skin tone,授乳する人（薄い肌色）,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1320,variant,skin_gender,0,feeding baby
 1334,🧑🏼‍🍼,1F9D1 1F3FC 200D 1F37C,person feeding baby: medium-light skin tone,授乳する人（やや薄い肌色）,People & Body,人と体,person-role,職業の人,13,2,,,,,,,,,1320,variant,skin_gender,0,feeding baby
 1335,🧑🏽‍🍼,1F9D1 1F3FD 200D 1F37C,person feeding baby: medium skin tone,授乳する人（中間の肌色）,People & Body,人と体,person-role,職業の人,13,1,,,,,,,,,1320,variant,skin_gender,0,feeding baby
@@ -2592,17 +2592,17 @@
 2591,🐒,1F412,monkey,サル,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;サル;猿,毛;しっぽ;茶色;顔,動物園;自然;生き物;ジャングル,野生;生命;干支;申年;いたずら,かわいい;親しみ;元気,登る,,哺乳類;サル;猿;毛;しっぽ;茶色;顔;動物園;自然;生き物;ジャングル;野生;生命;干支;申年;いたずら;かわいい;親しみ;元気;登る,2591,independent,independent,1,monkey
 2592,🦍,1F98D,gorilla,ゴリラ,Animals & Nature,動物と自然,animal-mammal,哺乳類,3,3,哺乳類;ゴリラ,毛;しっぽ;黒;大きい;筋肉,動物園;自然;生き物;ジャングル,野生;生命;力強さ;野性,かわいい;親しみ;迫力,,,哺乳類;ゴリラ;毛;しっぽ;黒;大きい;筋肉;動物園;自然;生き物;ジャングル;野生;生命;力強さ;野性;かわいい;親しみ;迫力,2592,independent,independent,1,gorilla
 2593,🦧,1F9A7,orangutan,オランウータン,Animals & Nature,動物と自然,animal-mammal,哺乳類,12,3,哺乳類;オランウータン,毛;しっぽ;オレンジ;長い腕,動物園;自然;生き物;森,野生;生命;知性,かわいい;親しみ;穏やか,ぶら下がる,,哺乳類;オランウータン;毛;しっぽ;オレンジ;長い腕;動物園;自然;生き物;森;野生;生命;知性;かわいい;親しみ;穏やか;ぶら下がる,2593,independent,independent,1,orangutan
-2594,🐶,1F436,dog face,犬,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;犬;イヌ,毛;しっぽ;耳,動物園;自然;生き物;ペット;散歩;家族,野生;生命;忠実;相棒;戌年,かわいい;親しみ,吠える,,哺乳類;犬;イヌ;毛;しっぽ;耳;動物園;自然;生き物;ペット;散歩;家族;野生;生命;忠実;相棒;戌年;かわいい;親しみ;吠える;もふもふ,2594,independent,independent,1,dog face
-2595,🐕,1F415,dog,イヌ,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.7,3,哺乳類;イヌ;犬,毛;しっぽ;耳,動物園;自然;生き物;ペット;散歩;家族,野生;生命;忠実;相棒;戌年,かわいい;親しみ,吠える,,哺乳類;イヌ;犬;毛;しっぽ;耳;動物園;自然;生き物;ペット;散歩;家族;野生;生命;忠実;相棒;戌年;かわいい;親しみ;吠える,2595,independent,independent,1,dog
-2596,🦮,1F9AE,guide dog,盲導犬,Animals & Nature,動物と自然,animal-mammal,哺乳類,12,3,哺乳類;盲導犬;犬;イヌ,毛;しっぽ;耳;ハーネス,動物園;自然;生き物;ペット;散歩;家族;福祉;介助;バリアフリー,野生;生命;忠実;相棒;戌年;サポート;信頼,かわいい;親しみ;頼もしい,吠える;案内する,,哺乳類;盲導犬;犬;イヌ;毛;しっぽ;耳;ハーネス;動物園;自然;生き物;ペット;散歩;家族;福祉;介助;バリアフリー;野生;生命;忠実;相棒;戌年;サポート;信頼;かわいい;親しみ;頼もしい;吠える;案内する,2596,independent,independent,1,guide dog
-2597,🐕‍🦺,1F415 200D 1F9BA,service dog,介助犬,Animals & Nature,動物と自然,animal-mammal,哺乳類,12,3,哺乳類;介助犬;犬;イヌ,毛;しっぽ;耳;ベスト,動物園;自然;生き物;ペット;散歩;家族;福祉;介助;バリアフリー,野生;生命;忠実;相棒;戌年;サポート;信頼,かわいい;親しみ;頼もしい,吠える;助ける,,哺乳類;介助犬;犬;イヌ;毛;しっぽ;耳;ベスト;動物園;自然;生き物;ペット;散歩;家族;福祉;介助;バリアフリー;野生;生命;忠実;相棒;戌年;サポート;信頼;かわいい;親しみ;頼もしい;吠える;助ける,2597,independent,independent,1,service dog
-2598,🐩,1F429,poodle,プードル,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;プードル;犬,毛;しっぽ;巻き毛,動物園;自然;生き物;ペット;トリミング,野生;生命;おしゃれ,かわいい;親しみ,,,哺乳類;プードル;犬;毛;しっぽ;巻き毛;動物園;自然;生き物;ペット;トリミング;野生;生命;おしゃれ;かわいい;親しみ;もふもふ,2598,independent,independent,1,poodle
+2594,🐶,1F436,dog face,犬,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;犬;イヌ,毛;しっぽ;耳,自然;生き物;ペット;散歩;家族;動物園,野生;生命;忠実;相棒;戌年,かわいい;親しみ,吠える,,哺乳類;犬;イヌ;毛;しっぽ;耳;自然;生き物;ペット;散歩;家族;野生;生命;忠実;相棒;戌年;かわいい;親しみ;吠える;もふもふ;動物園,2594,independent,independent,1,dog face
+2595,🐕,1F415,dog,イヌ,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.7,3,哺乳類;イヌ;犬,毛;しっぽ;耳,自然;生き物;ペット;散歩;家族;動物園,野生;生命;忠実;相棒;戌年,かわいい;親しみ,吠える,,哺乳類;イヌ;犬;毛;しっぽ;耳;自然;生き物;ペット;散歩;家族;野生;生命;忠実;相棒;戌年;かわいい;親しみ;吠える;動物園,2595,independent,independent,1,dog
+2596,🦮,1F9AE,guide dog,盲導犬,Animals & Nature,動物と自然,animal-mammal,哺乳類,12,3,哺乳類;盲導犬;犬;イヌ,毛;しっぽ;耳;ハーネス,自然;生き物;ペット;散歩;家族;福祉;介助;バリアフリー,野生;生命;忠実;相棒;戌年;サポート;信頼,かわいい;親しみ;頼もしい,吠える;案内する,,哺乳類;盲導犬;犬;イヌ;毛;しっぽ;耳;ハーネス;自然;生き物;ペット;散歩;家族;福祉;介助;バリアフリー;野生;生命;忠実;相棒;戌年;サポート;信頼;かわいい;親しみ;頼もしい;吠える;案内する,2596,independent,independent,1,guide dog
+2597,🐕‍🦺,1F415 200D 1F9BA,service dog,介助犬,Animals & Nature,動物と自然,animal-mammal,哺乳類,12,3,哺乳類;介助犬;犬;イヌ,毛;しっぽ;耳;ベスト,自然;生き物;ペット;散歩;家族;福祉;介助;バリアフリー,野生;生命;忠実;相棒;戌年;サポート;信頼,かわいい;親しみ;頼もしい,吠える;助ける,,哺乳類;介助犬;犬;イヌ;毛;しっぽ;耳;ベスト;自然;生き物;ペット;散歩;家族;福祉;介助;バリアフリー;野生;生命;忠実;相棒;戌年;サポート;信頼;かわいい;親しみ;頼もしい;吠える;助ける,2597,independent,independent,1,service dog
+2598,🐩,1F429,poodle,プードル,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;プードル;犬,毛;しっぽ;巻き毛,自然;生き物;ペット;トリミング,野生;生命;おしゃれ,かわいい;親しみ,,,哺乳類;プードル;犬;毛;しっぽ;巻き毛;自然;生き物;ペット;トリミング;野生;生命;おしゃれ;かわいい;親しみ;もふもふ,2598,independent,independent,1,poodle
 2599,🐺,1F43A,wolf,オオカミ,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;オオカミ,毛;しっぽ;灰色;牙,動物園;自然;生き物;森;夜,野生;生命;群れ;ワイルド,かわいい;親しみ;かっこいい,遠吠え,,哺乳類;オオカミ;毛;しっぽ;灰色;牙;動物園;自然;生き物;森;夜;野生;生命;群れ;ワイルド;かわいい;親しみ;かっこいい;遠吠え,2599,independent,independent,1,wolf
 2600,🦊,1F98A,fox,キツネ,Animals & Nature,動物と自然,animal-mammal,哺乳類,3,3,哺乳類;キツネ;牡牛;牛,毛;しっぽ;オレンジ;角,動物園;自然;生き物;森;昔話;農耕;牧場,野生;生命;ずる賢い;稲荷;牡牛座;丑年;力,かわいい;親しみ;力強い,,,哺乳類;キツネ;牡牛;牛;毛;しっぽ;オレンジ;角;動物園;自然;生き物;森;昔話;農耕;牧場;野生;生命;ずる賢い;稲荷;牡牛座;丑年;力;かわいい;親しみ;力強い,2600,independent,independent,1,fox
 2601,🦝,1F99D,raccoon,アライグマ,Animals & Nature,動物と自然,animal-mammal,哺乳類,11,3,哺乳類;アライグマ,毛;しっぽ;しま模様,動物園;自然;生き物;森;川辺,野生;生命;器用,かわいい;親しみ,,,哺乳類;アライグマ;毛;しっぽ;しま模様;動物園;自然;生き物;森;川辺;野生;生命;器用;かわいい;親しみ,2601,independent,independent,1,raccoon
-2602,🐱,1F431,cat face,猫,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;猫;ネコ,毛;しっぽ;耳;ひげ,動物園;自然;生き物;ペット;家;SNS,野生;生命;気まぐれ;癒し,かわいい;親しみ,鳴く,,哺乳類;猫;ネコ;毛;しっぽ;耳;ひげ;動物園;自然;生き物;ペット;家;SNS;野生;生命;気まぐれ;癒し;かわいい;親しみ;鳴く;もふもふ;まったり,2602,independent,independent,1,cat face
-2603,🐈,1F408,cat,ネコ,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.7,3,哺乳類;ネコ;猫,毛;しっぽ;耳;ひげ,動物園;自然;生き物;ペット;家;SNS,野生;生命;気まぐれ;癒し,かわいい;親しみ,鳴く,,哺乳類;ネコ;猫;毛;しっぽ;耳;ひげ;動物園;自然;生き物;ペット;家;SNS;野生;生命;気まぐれ;癒し;かわいい;親しみ;鳴く,2603,independent,independent,1,cat
-2604,🐈‍⬛,1F408 200D 2B1B,black cat,黒猫,Animals & Nature,動物と自然,animal-mammal,哺乳類,13,3,哺乳類;黒猫;猫;ネコ,毛;しっぽ;耳;ひげ;黒,動物園;自然;生き物;ペット;家;SNS;ハロウィン;夜,野生;生命;気まぐれ;癒し;魔女;不吉;幸運,かわいい;親しみ;神秘的,鳴く,,哺乳類;黒猫;猫;ネコ;毛;しっぽ;耳;ひげ;黒;動物園;自然;生き物;ペット;家;SNS;ハロウィン;夜;野生;生命;気まぐれ;癒し;魔女;不吉;幸運;かわいい;親しみ;神秘的;鳴く,2604,independent,independent,1,black cat
+2602,🐱,1F431,cat face,猫,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;猫;ネコ,毛;しっぽ;耳;ひげ,自然;生き物;ペット;家;SNS;動物園,野生;生命;気まぐれ;癒し,かわいい;親しみ,鳴く,,哺乳類;猫;ネコ;毛;しっぽ;耳;ひげ;自然;生き物;ペット;家;SNS;野生;生命;気まぐれ;癒し;かわいい;親しみ;鳴く;もふもふ;まったり;動物園,2602,independent,independent,1,cat face
+2603,🐈,1F408,cat,ネコ,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.7,3,哺乳類;ネコ;猫,毛;しっぽ;耳;ひげ,自然;生き物;ペット;家;SNS;動物園,野生;生命;気まぐれ;癒し,かわいい;親しみ,鳴く,,哺乳類;ネコ;猫;毛;しっぽ;耳;ひげ;自然;生き物;ペット;家;SNS;野生;生命;気まぐれ;癒し;かわいい;親しみ;鳴く;動物園,2603,independent,independent,1,cat
+2604,🐈‍⬛,1F408 200D 2B1B,black cat,黒猫,Animals & Nature,動物と自然,animal-mammal,哺乳類,13,3,哺乳類;黒猫;猫;ネコ,毛;しっぽ;耳;ひげ;黒,自然;生き物;ペット;家;SNS;ハロウィン;夜,野生;生命;気まぐれ;癒し;魔女;不吉;幸運,かわいい;親しみ;神秘的,鳴く,,哺乳類;黒猫;猫;ネコ;毛;しっぽ;耳;ひげ;黒;自然;生き物;ペット;家;SNS;ハロウィン;夜;野生;生命;気まぐれ;癒し;魔女;不吉;幸運;かわいい;親しみ;神秘的;鳴く,2604,independent,independent,1,black cat
 2605,🦁,1F981,lion,ライオン,Animals & Nature,動物と自然,animal-mammal,哺乳類,1,3,哺乳類;ライオン,毛;しっぽ;たてがみ;金色,動物園;自然;生き物;サファリ,野生;生命;百獣の王;獅子座;王者,かわいい;親しみ;力強い,吠える,,哺乳類;ライオン;毛;しっぽ;たてがみ;金色;動物園;自然;生き物;サファリ;野生;生命;百獣の王;獅子座;王者;かわいい;親しみ;力強い;吠える,2605,independent,independent,1,lion
 2606,🐯,1F42F,tiger face,トラ,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;トラ;虎,毛;しっぽ;しま模様;オレンジ,動物園;自然;生き物;サファリ,野生;生命;寅年;勇猛,かわいい;親しみ;強い,,,哺乳類;トラ;虎;毛;しっぽ;しま模様;オレンジ;動物園;自然;生き物;サファリ;野生;生命;寅年;勇猛;かわいい;親しみ;強い,2606,independent,independent,1,tiger face
 2607,🐅,1F405,tiger,トラ,Animals & Nature,動物と自然,animal-mammal,哺乳類,1,3,哺乳類;トラ;虎,毛;しっぽ;しま模様;オレンジ,動物園;自然;生き物;サファリ,野生;生命;寅年;勇猛,かわいい;親しみ;強い,,,哺乳類;トラ;虎;毛;しっぽ;しま模様;オレンジ;動物園;自然;生き物;サファリ;野生;生命;寅年;勇猛;かわいい;親しみ;強い,2607,independent,independent,1,tiger
@@ -2611,7 +2611,7 @@
 2610,🫎,1FACE,moose,ヘラジカ,Animals & Nature,動物と自然,animal-mammal,哺乳類,15,3,哺乳類;ヘラジカ,毛;しっぽ,動物園;自然;生き物,野生;生命;哺乳類;動物と自然;生き物;自然;いきもの,かわいい;親しみ,,,哺乳類;ヘラジカ;毛;しっぽ;動物園;自然;生き物;野生;生命;動物と自然;いきもの;かわいい;親しみ,2610,independent,independent,1,moose
 2611,🫏,1FACF,donkey,ロバ,Animals & Nature,動物と自然,animal-mammal,哺乳類,15,3,哺乳類;ロバ,毛;しっぽ,動物園;自然;生き物,野生;生命;哺乳類;動物と自然;生き物;自然;いきもの,かわいい;親しみ,,,哺乳類;ロバ;毛;しっぽ;動物園;自然;生き物;野生;生命;動物と自然;いきもの;かわいい;親しみ,2611,independent,independent,1,donkey
 2612,🐎,1F40E,horse,馬,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;馬,毛;しっぽ;たてがみ,動物園;自然;生き物;乗馬;競馬;牧場,野生;生命;午年;速さ,かわいい;親しみ;優雅,走る,,哺乳類;馬;毛;しっぽ;たてがみ;動物園;自然;生き物;乗馬;競馬;牧場;野生;生命;午年;速さ;かわいい;親しみ;優雅;走る,2612,independent,independent,1,horse
-2613,🦄,1F984,unicorn,ユニコーン,Animals & Nature,動物と自然,animal-mammal,哺乳類,1,3,哺乳類;ユニコーン,毛;しっぽ;角;白;虹,動物園;自然;生き物;ファンタジー;物語,野生;生命;夢;魔法,かわいい;親しみ;神秘的,,,哺乳類;ユニコーン;毛;しっぽ;角;白;虹;動物園;自然;生き物;ファンタジー;物語;野生;生命;夢;魔法;かわいい;親しみ;神秘的,2613,independent,independent,1,unicorn
+2613,🦄,1F984,unicorn,ユニコーン,Animals & Nature,動物と自然,animal-mammal,哺乳類,1,3,哺乳類;ユニコーン,毛;しっぽ;角;白;虹,自然;生き物;ファンタジー;物語,野生;生命;夢;魔法,かわいい;親しみ;神秘的,,,哺乳類;ユニコーン;毛;しっぽ;角;白;虹;自然;生き物;ファンタジー;物語;野生;生命;夢;魔法;かわいい;親しみ;神秘的,2613,independent,independent,1,unicorn
 2614,🦓,1F993,zebra,シマウマ,Animals & Nature,動物と自然,animal-mammal,哺乳類,5,3,哺乳類;シマウマ,毛;しっぽ;白黒;しま模様,動物園;自然;生き物;サファリ,野生;生命;個性,かわいい;親しみ;おしゃれ,,,哺乳類;シマウマ;毛;しっぽ;白黒;しま模様;動物園;自然;生き物;サファリ;野生;生命;個性;かわいい;親しみ;おしゃれ,2614,independent,independent,1,zebra
 2615,🦌,1F98C,deer,シカ,Animals & Nature,動物と自然,animal-mammal,哺乳類,3,3,哺乳類;シカ;鹿,毛;しっぽ;角,動物園;自然;生き物;森;奈良;秋,野生;生命;自然;神の使い,かわいい;親しみ;穏やか,,,哺乳類;シカ;鹿;毛;しっぽ;角;動物園;自然;生き物;森;奈良;秋;野生;生命;神の使い;かわいい;親しみ;穏やか,2615,independent,independent,1,deer
 2616,🦬,1F9AC,bison,バイソン,Animals & Nature,動物と自然,animal-mammal,哺乳類,13,3,哺乳類;バイソン,毛;しっぽ;大きい;角,動物園;自然;生き物;草原;北米,野生;生命;力強さ,かわいい;親しみ;迫力,,,哺乳類;バイソン;毛;しっぽ;大きい;角;動物園;自然;生き物;草原;北米;野生;生命;力強さ;かわいい;親しみ;迫力,2616,independent,independent,1,bison
@@ -2622,7 +2622,7 @@
 2621,🐷,1F437,pig face,ブタ,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;ブタ;豚,毛;しっぽ;ピンク;鼻,動物園;自然;生き物;牧場;食べ物,野生;生命;亥年;豊かさ,かわいい;親しみ,,,哺乳類;ブタ;豚;毛;しっぽ;ピンク;鼻;動物園;自然;生き物;牧場;食べ物;野生;生命;亥年;豊かさ;かわいい;親しみ,2621,independent,independent,1,pig face
 2622,🐖,1F416,pig,ブタ,Animals & Nature,動物と自然,animal-mammal,哺乳類,1,3,哺乳類;ブタ;豚,毛;しっぽ;ピンク;鼻,動物園;自然;生き物;牧場;食べ物,野生;生命;亥年;豊かさ,かわいい;親しみ,,,哺乳類;ブタ;豚;毛;しっぽ;ピンク;鼻;動物園;自然;生き物;牧場;食べ物;野生;生命;亥年;豊かさ;かわいい;親しみ,2622,independent,independent,1,pig
 2623,🐗,1F417,boar,イノシシ,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;イノシシ,毛;しっぽ;牙;茶色,動物園;自然;生き物;山;森,野生;生命;亥年;突進,かわいい;親しみ;勢い,走る,,哺乳類;イノシシ;毛;しっぽ;牙;茶色;動物園;自然;生き物;山;森;野生;生命;亥年;突進;かわいい;親しみ;勢い;走る,2623,independent,independent,1,boar
-2624,🐽,1F43D,pig nose,ブタ鼻,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;ブタ鼻;ブタ;豚,毛;しっぽ;ピンク;鼻,動物園;自然;生き物;牧場;食べ物,野生;生命;亥年;豊かさ,かわいい;親しみ,,,哺乳類;ブタ鼻;ブタ;豚;毛;しっぽ;ピンク;鼻;動物園;自然;生き物;牧場;食べ物;野生;生命;亥年;豊かさ;かわいい;親しみ,2624,independent,independent,1,pig nose
+2624,🐽,1F43D,pig nose,ブタ鼻,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;ブタ鼻;ブタ;豚,毛;しっぽ;ピンク;鼻,自然;生き物;牧場;食べ物,野生;生命;亥年;豊かさ,かわいい;親しみ,,,哺乳類;ブタ鼻;ブタ;豚;毛;しっぽ;ピンク;鼻;自然;生き物;牧場;食べ物;野生;生命;亥年;豊かさ;かわいい;親しみ,2624,independent,independent,1,pig nose
 2625,🐏,1F40F,ram,牡羊,Animals & Nature,動物と自然,animal-mammal,哺乳類,1,3,哺乳類;牡羊;羊,毛;しっぽ;角;巻いた角,動物園;自然;生き物;牧場,野生;生命;牡羊座;未年,かわいい;親しみ;もこもこ,,,哺乳類;牡羊;羊;毛;しっぽ;角;巻いた角;動物園;自然;生き物;牧場;野生;生命;牡羊座;未年;かわいい;親しみ;もこもこ;もふもふ,2625,independent,independent,1,ram
 2626,🐑,1F411,ewe,羊,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;羊,毛;しっぽ;白;羊毛,動物園;自然;生き物;牧場,野生;生命;未年;安らぎ,かわいい;親しみ;ふわふわ,,,哺乳類;羊;毛;しっぽ;白;羊毛;動物園;自然;生き物;牧場;野生;生命;未年;安らぎ;かわいい;親しみ;ふわふわ;もふもふ,2626,independent,independent,1,ewe
 2627,🐐,1F410,goat,山羊,Animals & Nature,動物と自然,animal-mammal,哺乳類,1,3,哺乳類;山羊;ヤギ,毛;しっぽ;角;ひげ,動物園;自然;生き物;牧場;山,野生;生命;山羊座,かわいい;親しみ;素朴,,,哺乳類;山羊;ヤギ;毛;しっぽ;角;ひげ;動物園;自然;生き物;牧場;山;野生;生命;山羊座;かわいい;親しみ;素朴,2627,independent,independent,1,goat
@@ -2631,15 +2631,15 @@
 2630,🦙,1F999,llama,ラマ,Animals & Nature,動物と自然,animal-mammal,哺乳類,11,3,哺乳類;ラマ,毛;しっぽ;長い首,動物園;自然;生き物;牧場;アンデス,野生;生命;南米,かわいい;親しみ;もふもふ,,,哺乳類;ラマ;毛;しっぽ;長い首;動物園;自然;生き物;牧場;アンデス;野生;生命;南米;かわいい;親しみ;もふもふ,2630,independent,independent,1,llama
 2631,🦒,1F992,giraffe,キリン,Animals & Nature,動物と自然,animal-mammal,哺乳類,5,3,哺乳類;キリン,毛;しっぽ;長い首;斑点,動物園;自然;生き物;サファリ,野生;生命;背が高い,かわいい;親しみ;穏やか,,,哺乳類;キリン;毛;しっぽ;長い首;斑点;動物園;自然;生き物;サファリ;野生;生命;背が高い;かわいい;親しみ;穏やか,2631,independent,independent,1,giraffe
 2632,🐘,1F418,elephant,ゾウ,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;ゾウ;アリ,毛;しっぽ;鼻;大きい;牙;小さい;黒,動物園;自然;生き物;サファリ;巣;地面,野生;生命;記憶;力;働き者;行列,かわいい;親しみ;やさしい;まじめ,運ぶ,,哺乳類;ゾウ;アリ;毛;しっぽ;鼻;大きい;牙;小さい;黒;動物園;自然;生き物;サファリ;巣;地面;野生;生命;記憶;力;働き者;行列;かわいい;親しみ;やさしい;まじめ;運ぶ,2632,independent,independent,1,elephant
-2633,🦣,1F9A3,mammoth,マンモス,Animals & Nature,動物と自然,animal-mammal,哺乳類,13,3,哺乳類;マンモス,毛;しっぽ;牙,動物園;自然;生き物;古代;氷河期,野生;生命;絶滅;化石,かわいい;親しみ;迫力,,,哺乳類;マンモス;毛;しっぽ;牙;動物園;自然;生き物;古代;氷河期;野生;生命;絶滅;化石;かわいい;親しみ;迫力,2633,independent,independent,1,mammoth
+2633,🦣,1F9A3,mammoth,マンモス,Animals & Nature,動物と自然,animal-mammal,哺乳類,13,3,哺乳類;マンモス,毛;しっぽ;牙,自然;生き物;古代;氷河期,野生;生命;絶滅;化石,かわいい;親しみ;迫力,,,哺乳類;マンモス;毛;しっぽ;牙;自然;生き物;古代;氷河期;野生;生命;絶滅;化石;かわいい;親しみ;迫力,2633,independent,independent,1,mammoth
 2634,🦏,1F98F,rhinoceros,サイ,Animals & Nature,動物と自然,animal-mammal,哺乳類,3,3,哺乳類;サイ,毛;しっぽ;角;大きい,動物園;自然;生き物;サファリ,野生;生命;防御;力,かわいい;親しみ;迫力,,,哺乳類;サイ;毛;しっぽ;角;大きい;動物園;自然;生き物;サファリ;野生;生命;防御;力;かわいい;親しみ;迫力,2634,independent,independent,1,rhinoceros
 2635,🦛,1F99B,hippopotamus,カバ,Animals & Nature,動物と自然,animal-mammal,哺乳類,11,3,哺乳類;カバ,毛;しっぽ;大きい;水辺,動物園;自然;生き物;川,野生;生命;重厚,かわいい;親しみ;のんびり,,,哺乳類;カバ;毛;しっぽ;大きい;水辺;動物園;自然;生き物;川;野生;生命;重厚;かわいい;親しみ;のんびり,2635,independent,independent,1,hippopotamus
 2636,🐭,1F42D,mouse face,ネズミ,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;ネズミ,毛;しっぽ;小さい;ひげ,動物園;自然;生き物;家;実験,野生;生命;子年;すばしっこい,かわいい;親しみ,走る,,哺乳類;ネズミ;毛;しっぽ;小さい;ひげ;動物園;自然;生き物;家;実験;野生;生命;子年;すばしっこい;かわいい;親しみ;走る;干支,2636,independent,independent,1,mouse face
 2637,🐁,1F401,mouse,ハツカネズミ,Animals & Nature,動物と自然,animal-mammal,哺乳類,1,3,哺乳類;ハツカネズミ;ネズミ,毛;しっぽ;小さい;ひげ,動物園;自然;生き物;家;実験,野生;生命;子年;すばしっこい,かわいい;親しみ,走る,,哺乳類;ハツカネズミ;ネズミ;毛;しっぽ;小さい;ひげ;動物園;自然;生き物;家;実験;野生;生命;子年;すばしっこい;かわいい;親しみ;走る,2637,independent,independent,1,mouse
 2638,🐀,1F400,rat,ネズミ,Animals & Nature,動物と自然,animal-mammal,哺乳類,1,3,哺乳類;ネズミ,毛;しっぽ;長いしっぽ,動物園;自然;生き物;街;研究,野生;生命;子年,かわいい;親しみ;すばしっこい,,,哺乳類;ネズミ;毛;しっぽ;長いしっぽ;動物園;自然;生き物;街;研究;野生;生命;子年;かわいい;親しみ;すばしっこい,2638,independent,independent,1,rat
-2639,🐹,1F439,hamster,ハムスター,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;ハムスター,毛;しっぽ;小さい;頬袋,動物園;自然;生き物;ペット;ケージ,野生;生命;癒し,かわいい;親しみ,,,哺乳類;ハムスター;毛;しっぽ;小さい;頬袋;動物園;自然;生き物;ペット;ケージ;野生;生命;癒し;かわいい;親しみ;もふもふ,2639,independent,independent,1,hamster
-2640,🐰,1F430,rabbit face,うさぎ,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;うさぎ;ウサギ,毛;しっぽ;長い耳;白,動物園;自然;生き物;ペット;月見;イースター,野生;生命;卯年;跳躍,かわいい;親しみ,跳ねる,,哺乳類;うさぎ;ウサギ;毛;しっぽ;長い耳;白;動物園;自然;生き物;ペット;月見;イースター;野生;生命;卯年;跳躍;かわいい;親しみ;跳ねる,2640,independent,independent,1,rabbit face
-2641,🐇,1F407,rabbit,ウサギ,Animals & Nature,動物と自然,animal-mammal,哺乳類,1,3,哺乳類;ウサギ;うさぎ,毛;しっぽ;長い耳;白,動物園;自然;生き物;ペット;月見;イースター,野生;生命;卯年;跳躍,かわいい;親しみ,跳ねる,,哺乳類;ウサギ;うさぎ;毛;しっぽ;長い耳;白;動物園;自然;生き物;ペット;月見;イースター;野生;生命;卯年;跳躍;かわいい;親しみ;跳ねる;もふもふ;ふわふわ,2641,independent,independent,1,rabbit
+2639,🐹,1F439,hamster,ハムスター,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;ハムスター,毛;しっぽ;小さい;頬袋,自然;生き物;ペット;ケージ;動物園,野生;生命;癒し,かわいい;親しみ,,,哺乳類;ハムスター;毛;しっぽ;小さい;頬袋;自然;生き物;ペット;ケージ;野生;生命;癒し;かわいい;親しみ;もふもふ;動物園,2639,independent,independent,1,hamster
+2640,🐰,1F430,rabbit face,うさぎ,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;うさぎ;ウサギ,毛;しっぽ;長い耳;白,自然;生き物;ペット;月見;イースター;動物園,野生;生命;卯年;跳躍,かわいい;親しみ,跳ねる,,哺乳類;うさぎ;ウサギ;毛;しっぽ;長い耳;白;自然;生き物;ペット;月見;イースター;野生;生命;卯年;跳躍;かわいい;親しみ;跳ねる;動物園,2640,independent,independent,1,rabbit face
+2641,🐇,1F407,rabbit,ウサギ,Animals & Nature,動物と自然,animal-mammal,哺乳類,1,3,哺乳類;ウサギ;うさぎ,毛;しっぽ;長い耳;白,自然;生き物;ペット;月見;イースター;動物園,野生;生命;卯年;跳躍,かわいい;親しみ,跳ねる,,哺乳類;ウサギ;うさぎ;毛;しっぽ;長い耳;白;自然;生き物;ペット;月見;イースター;野生;生命;卯年;跳躍;かわいい;親しみ;跳ねる;もふもふ;ふわふわ;動物園,2641,independent,independent,1,rabbit
 2642,🐿️,1F43F FE0F,chipmunk,シマリス,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.7,3,哺乳類;シマリス,毛;しっぽ;しま模様,動物園;自然;生き物;森;木の実,野生;生命;小動物,かわいい;親しみ,,,哺乳類;シマリス;毛;しっぽ;しま模様;動物園;自然;生き物;森;木の実;野生;生命;小動物;かわいい;親しみ,2642,independent,independent,1,chipmunk
 2643,🦫,1F9AB,beaver,ビーバー,Animals & Nature,動物と自然,animal-mammal,哺乳類,13,3,哺乳類;ビーバー,毛;しっぽ;前歯,動物園;自然;生き物;川;ダム,野生;生命;建築;働き者,かわいい;親しみ,かじる,,哺乳類;ビーバー;毛;しっぽ;前歯;動物園;自然;生き物;川;ダム;野生;生命;建築;働き者;かわいい;親しみ;かじる,2643,independent,independent,1,beaver
 2644,🦔,1F994,hedgehog,ハリネズミ,Animals & Nature,動物と自然,animal-mammal,哺乳類,5,3,哺乳類;ハリネズミ,毛;しっぽ;針;丸い,動物園;自然;生き物;ペット;森,野生;生命;防御,かわいい;親しみ,丸まる,,哺乳類;ハリネズミ;毛;しっぽ;針;丸い;動物園;自然;生き物;ペット;森;野生;生命;防御;かわいい;親しみ;丸まる,2644,independent,independent,1,hedgehog
@@ -2653,7 +2653,7 @@
 2652,🦨,1F9A8,skunk,スカンク,Animals & Nature,動物と自然,animal-mammal,哺乳類,12,3,哺乳類;スカンク,毛;しっぽ;白黒,動物園;自然;生き物;森,野生;生命;におい;防御,かわいい;親しみ;くさい,,,哺乳類;スカンク;毛;しっぽ;白黒;動物園;自然;生き物;森;野生;生命;におい;防御;かわいい;親しみ;くさい,2652,independent,independent,1,skunk
 2653,🦘,1F998,kangaroo,カンガルー,Animals & Nature,動物と自然,animal-mammal,哺乳類,11,3,哺乳類;カンガルー,毛;しっぽ;袋;長い足,動物園;自然;生き物;オーストラリア,野生;生命;跳躍;親子,かわいい;親しみ;元気,跳ねる,,哺乳類;カンガルー;毛;しっぽ;袋;長い足;動物園;自然;生き物;オーストラリア;野生;生命;跳躍;親子;かわいい;親しみ;元気;跳ねる,2653,independent,independent,1,kangaroo
 2654,🦡,1F9A1,badger,アナグマ,Animals & Nature,動物と自然,animal-mammal,哺乳類,11,3,哺乳類;アナグマ,毛;しっぽ;しま模様;穴,動物園;自然;生き物;森,野生;生命;穴掘り,かわいい;親しみ;素朴,掘る,,哺乳類;アナグマ;毛;しっぽ;しま模様;穴;動物園;自然;生き物;森;野生;生命;穴掘り;かわいい;親しみ;素朴;掘る,2654,independent,independent,1,badger
-2655,🐾,1F43E,paw prints,肉球,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;肉球;足跡,毛;しっぽ;足跡;肉球,動物園;自然;生き物;ペット;散歩,野生;生命;動物の気配,かわいい;親しみ,歩く,,哺乳類;肉球;足跡;毛;しっぽ;動物園;自然;生き物;ペット;散歩;野生;生命;動物の気配;かわいい;親しみ;歩く,2655,independent,independent,1,paw prints
+2655,🐾,1F43E,paw prints,肉球,Animals & Nature,動物と自然,animal-mammal,哺乳類,0.6,3,哺乳類;肉球;足跡,毛;しっぽ;足跡;肉球,自然;生き物;ペット;散歩,野生;生命;動物の気配,かわいい;親しみ,歩く,,哺乳類;肉球;足跡;毛;しっぽ;自然;生き物;ペット;散歩;野生;生命;動物の気配;かわいい;親しみ;歩く,2655,independent,independent,1,paw prints
 2656,🦃,1F983,turkey,七面鳥,Animals & Nature,動物と自然,animal-bird,鳥,1,3,鳥;七面鳥,羽;くちばし;茶色,自然;空;観察;感謝祭;料理,自由;飛翔;祝日,軽やか;にぎやか,飛ぶ,,鳥;七面鳥;羽;くちばし;茶色;自然;空;観察;感謝祭;料理;自由;飛翔;祝日;軽やか;にぎやか;飛ぶ,2656,independent,independent,1,turkey
 2657,🐔,1F414,chicken,にわとり,Animals & Nature,動物と自然,animal-bird,鳥,0.6,3,鳥;にわとり;ひよこ,羽;くちばし;黄色;小さい,自然;空;観察;農場;卵;春,自由;飛翔;朝;誕生,軽やか;身近;かわいい,飛ぶ;生まれる,,鳥;にわとり;ひよこ;羽;くちばし;黄色;小さい;自然;空;観察;農場;卵;春;自由;飛翔;朝;誕生;軽やか;身近;かわいい;飛ぶ;生まれる,2657,independent,independent,1,chicken
 2658,🐓,1F413,rooster,おんどり,Animals & Nature,動物と自然,animal-bird,鳥,1,3,鳥;おんどり,羽;くちばし;とさか;赤,自然;空;観察;朝;農場,自由;飛翔;目覚め,軽やか;元気,飛ぶ;鳴く,,鳥;おんどり;羽;くちばし;とさか;赤;自然;空;観察;朝;農場;自由;飛翔;目覚め;軽やか;元気;飛ぶ;鳴く,2658,independent,independent,1,rooster
@@ -2681,10 +2681,10 @@
 2680,🐢,1F422,turtle,カメ,Animals & Nature,動物と自然,animal-reptile,爬虫類,0.6,2,爬虫類;カメ,うろこ;しっぽ;甲羅;緑,自然;動物園;冒険;海;長寿,古代;野生;長寿;ゆっくり,かっこいい;穏やか,歩く,,爬虫類;カメ;うろこ;しっぽ;甲羅;緑;自然;動物園;冒険;海;長寿;古代;野生;ゆっくり;かっこいい;穏やか;歩く;遅い,2680,independent,independent,1,turtle
 2681,🦎,1F98E,lizard,トカゲ,Animals & Nature,動物と自然,animal-reptile,爬虫類,3,2,爬虫類;トカゲ,うろこ;しっぽ,自然;動物園;冒険;岩場,古代;野生;再生,かっこいい;すばしっこい,,,爬虫類;トカゲ;うろこ;しっぽ;自然;動物園;冒険;岩場;古代;野生;再生;かっこいい;すばしっこい,2681,independent,independent,1,lizard
 2682,🐍,1F40D,snake,ヘビ,Animals & Nature,動物と自然,animal-reptile,爬虫類,0.6,2,爬虫類;ヘビ,うろこ;しっぽ;細長い,自然;動物園;冒険;森;占い,古代;野生;巳年;誘惑;危険,かっこいい;怖い,這う,,爬虫類;ヘビ;うろこ;しっぽ;細長い;自然;動物園;冒険;森;占い;古代;野生;巳年;誘惑;危険;かっこいい;怖い;這う,2682,independent,independent,1,snake
-2683,🐲,1F432,dragon face,ドラゴン,Animals & Nature,動物と自然,animal-reptile,爬虫類,0.6,2,爬虫類;ドラゴン;竜,うろこ;しっぽ;角,自然;動物園;冒険;神話;ファンタジー;中華,古代;野生;辰年;力;伝説,かっこいい,飛ぶ,,爬虫類;ドラゴン;竜;うろこ;しっぽ;角;自然;動物園;冒険;神話;ファンタジー;中華;古代;野生;辰年;力;伝説;かっこいい;飛ぶ,2683,independent,independent,1,dragon face
-2684,🐉,1F409,dragon,ドラゴン,Animals & Nature,動物と自然,animal-reptile,爬虫類,1,2,爬虫類;ドラゴン;竜,うろこ;しっぽ;角,自然;動物園;冒険;神話;ファンタジー;中華,古代;野生;辰年;力;伝説,かっこいい,飛ぶ,,爬虫類;ドラゴン;竜;うろこ;しっぽ;角;自然;動物園;冒険;神話;ファンタジー;中華;古代;野生;辰年;力;伝説;かっこいい;飛ぶ,2684,independent,independent,1,dragon
-2685,🦕,1F995,sauropod,草食恐竜,Animals & Nature,動物と自然,animal-reptile,爬虫類,5,2,爬虫類;草食恐竜,うろこ;しっぽ;長い首;大きい,自然;動物園;冒険;恐竜;古代,古代;野生;太古;化石,かっこいい;迫力,,,爬虫類;草食恐竜;うろこ;しっぽ;長い首;大きい;自然;動物園;冒険;恐竜;古代;野生;太古;化石;かっこいい;迫力,2685,independent,independent,1,sauropod
-2686,🦖,1F996,T-Rex,ティラノサウルス,Animals & Nature,動物と自然,animal-reptile,爬虫類,5,2,爬虫類;ティラノサウルス,うろこ;しっぽ;大きな口;牙,自然;動物園;冒険;恐竜;古代,古代;野生;最強;化石,かっこいい;怖い,,,爬虫類;ティラノサウルス;うろこ;しっぽ;大きな口;牙;自然;動物園;冒険;恐竜;古代;野生;最強;化石;かっこいい;怖い,2686,independent,independent,1,t-rex
+2683,🐲,1F432,dragon face,ドラゴン,Animals & Nature,動物と自然,animal-reptile,爬虫類,0.6,2,爬虫類;ドラゴン;竜,うろこ;しっぽ;角,自然;冒険;神話;ファンタジー;中華,古代;野生;辰年;力;伝説,かっこいい,飛ぶ,,爬虫類;ドラゴン;竜;うろこ;しっぽ;角;自然;冒険;神話;ファンタジー;中華;古代;野生;辰年;力;伝説;かっこいい;飛ぶ,2683,independent,independent,1,dragon face
+2684,🐉,1F409,dragon,ドラゴン,Animals & Nature,動物と自然,animal-reptile,爬虫類,1,2,爬虫類;ドラゴン;竜,うろこ;しっぽ;角,自然;冒険;神話;ファンタジー;中華,古代;野生;辰年;力;伝説,かっこいい,飛ぶ,,爬虫類;ドラゴン;竜;うろこ;しっぽ;角;自然;冒険;神話;ファンタジー;中華;古代;野生;辰年;力;伝説;かっこいい;飛ぶ,2684,independent,independent,1,dragon
+2685,🦕,1F995,sauropod,草食恐竜,Animals & Nature,動物と自然,animal-reptile,爬虫類,5,2,爬虫類;草食恐竜,うろこ;しっぽ;長い首;大きい,自然;冒険;恐竜;古代,古代;野生;太古;化石,かっこいい;迫力,,,爬虫類;草食恐竜;うろこ;しっぽ;長い首;大きい;自然;冒険;恐竜;古代;野生;太古;化石;かっこいい;迫力,2685,independent,independent,1,sauropod
+2686,🦖,1F996,T-Rex,ティラノサウルス,Animals & Nature,動物と自然,animal-reptile,爬虫類,5,2,爬虫類;ティラノサウルス,うろこ;しっぽ;大きな口;牙,自然;冒険;恐竜;古代,古代;野生;最強;化石,かっこいい;怖い,,,爬虫類;ティラノサウルス;うろこ;しっぽ;大きな口;牙;自然;冒険;恐竜;古代;野生;最強;化石;かっこいい;怖い,2686,independent,independent,1,t-rex
 2687,🐳,1F433,spouting whale,潮吹きクジラ,Animals & Nature,動物と自然,animal-marine,海の動物,0.6,3,海の生き物;潮吹きクジラ;クジラ,水中;海;大きい,海;水族館;夏;旅行,海洋;生命;雄大,涼しい;爽やか;穏やか,泳ぐ,,海の生き物;潮吹きクジラ;クジラ;水中;海;大きい;水族館;夏;旅行;海洋;生命;雄大;涼しい;爽やか;穏やか;泳ぐ,2687,independent,independent,1,spouting whale
 2688,🐋,1F40B,whale,クジラ,Animals & Nature,動物と自然,animal-marine,海の動物,1,3,海の生き物;クジラ,水中;海;大きい,海;水族館;夏;旅行,海洋;生命;雄大,涼しい;爽やか;穏やか,泳ぐ,,海の生き物;クジラ;水中;海;大きい;水族館;夏;旅行;海洋;生命;雄大;涼しい;爽やか;穏やか;泳ぐ,2688,independent,independent,1,whale
 2689,🐬,1F42C,dolphin,イルカ,Animals & Nature,動物と自然,animal-marine,海の動物,0.6,3,海の生き物;イルカ,水中;海;青,海;水族館;夏;旅行,海洋;生命;賢い;ジャンプ,涼しい;爽やか,泳ぐ,,海の生き物;イルカ;水中;海;青;水族館;夏;旅行;海洋;生命;賢い;ジャンプ;涼しい;爽やか;泳ぐ,2689,independent,independent,1,dolphin
