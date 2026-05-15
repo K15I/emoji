@@ -13,6 +13,10 @@ const SKIN_TONE_LABELS = {
   dark: "濃い肌色",
 };
 
+function makeRandomSeed() {
+  return Math.floor(Math.random() * 2 ** 31) + 1;
+}
+
 const state = {
   query: "",
   searchMode: "fuzzy",
@@ -20,7 +24,7 @@ const state = {
   selectedTone: "default",
   copiedEmoji: "",
   stock: [],
-  resultRandomSeed: 0,
+  resultRandomSeed: makeRandomSeed(),
 };
 
 const searchInput = document.querySelector("#searchInput");
@@ -1588,7 +1592,7 @@ exactModeButton.addEventListener("click", () => {
 });
 
 randomResultsButton.addEventListener("click", () => {
-  state.resultRandomSeed = Math.floor(Math.random() * 2 ** 31) + 1;
+  state.resultRandomSeed = makeRandomSeed();
   render();
 });
 
